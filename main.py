@@ -108,9 +108,10 @@ def flood(companies, tasks, results):
     notify.push("Intern Radar flood-fill done", f"{len(company)} company roles + {len(listings)} listings posted to #dump", priority=3)
 
 
-def update_tracker(results, now):
+def update_tracker(results, now, companies):
     """Every open matching role from any source, merged by company+title, with first-seen / open-closed status."""
     roles = load(ROLES, {})
+    listed = {norm_name(a) for c in companies for a in [c["name"], *c.get("aliases", [])]}
     current = {}
     for key, jobs in results.items():
         for j in jobs:
@@ -133,7 +134,7 @@ def update_tracker(results, now):
     for rid, r in current.items():
         old = roles.get(rid, {})
         locs = r.pop("locations")
-        roles[rid] = {**r, "location": " / ".join(locs)[:200],
+        roles[rid] = {**r, "location": " / ".join(locs)[:200], "listed": norm_name(r["company"]) in listed,
                       "first_seen": old.get("first_seen", now), "last_seen": now, "status": "open"}
     ok = set(results)
     for rid, r in roles.items():
@@ -273,7 +274,7 @@ def main():
         ])
         health["last_summary"] = today
 
-    update_tracker(results, now)
+    update_tracker(results, now, companies)
 
     # save (prune old ids so the file doesn't grow forever)
     cutoff = now - PRUNE_DAYS * 86400
