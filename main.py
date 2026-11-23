@@ -175,9 +175,9 @@ def main():
         notify.push(f"+{len(company_new) - PUSH_CAP} more intern roles", "See #company-roles on Discord")
     print(f"new: {len(company_new)} company-roles, {len(repo_new)} repo-feed")
 
+    for key, err in sorted(errors.items()):
+        print(f"ERROR {key}: {err}")
     if args.dry_run:
-        for key, err in sorted(errors.items()):
-            print(f"ERROR {key}: {err}")
         return
 
     # health
