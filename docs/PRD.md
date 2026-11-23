@@ -57,6 +57,7 @@ Python, GitHub Actions every 2 hours (private repo is fine), seen roles stored i
 - **Consumer:** Pinterest, Lyft, DoorDash, Instacart, Reddit, Discord, Roblox, Duolingo, Twitch, Etsy, eBay, Wayfair, Zillow, Expedia, Faire, Whatnot
 - **Enterprise:** Palantir, Rippling, Gusto, HubSpot, Zoom, Samsara, Verkada, Flexport, Anduril
 - **Games:** EA, Ubisoft, Riot Games, Epic Games, Blizzard
+- **Health & fitness:** Strava, Whoop, Oura, Peloton, Garmin, AllTrails, Zwift, Headspace, Calm, Noom
 - **Robotics & hardware:** Zoox, Aurora, Skydio, Applied Intuition, Physical Intelligence, Figure AI, Skild AI, Shield AI, Saronic, Hadrian
 
 Companies with no readable feed (yet) are fine: their roles still arrive through the GitHub lists.

@@ -37,9 +37,25 @@ ALIASES = {
     "Ecobee": ["ecobee"], "Lightspeed": ["Lightspeed Commerce"], "Applied Intuition": [],
     "AMD": ["Advanced Micro Devices"], "Wave": ["Wave Financial"], "Maple": ["Maple Health"],
 }
-MANUAL = {  # sites discovery can't infer
-    "AMD": {"ats": "jibe", "slug": "careers.amd.com"},
-    "Kinaxis": {"ats": "jibe", "slug": "kinaxis.jibeapply.com"},
+MANUAL = {  # found by hand (careers-page links, short-link resolution, slug probing)
+    "AMD": ("jibe", "careers.amd.com"), "Kinaxis": ("jibe", "kinaxis.jibeapply.com"), "Garmin": ("jibe", "careers.garmin.com"),
+    "Character.AI": ("ashby", "character"), "Hebbia": ("ashby", "hebbia-ai"), "Convex": ("ashby", "convex-dev"),
+    "Kraken": ("ashby", "kraken.com"), "Strava": ("ashby", "strava"), "Whoop": ("ashby", "whoop"), "Aurora": ("ashby", "aurora-operations-inc"),
+    "Ada": ("greenhouse", "ada18"), "Browserbase": ("greenhouse", "browserbaseinc"), "Oura": ("greenhouse", "oura"),
+    "Headspace": ("greenhouse", "hs"), "Calm": ("greenhouse", "calm"), "Zwift": ("greenhouse", "zwift"), "Peloton": ("greenhouse", "peloton"),
+    "DigitalOcean": ("greenhouse", "digitalocean98"), "HubSpot": ("greenhouse", "hubspotjobs"), "Bridgewater": ("greenhouse", "bridgewater89"),
+    "Maple": ("lever", "getmaple"), "Wave": ("lever", "waveapps"), "AllTrails": ("lever", "alltrails"),
+    "Borrowell": ("workable", "borrowell"), "Hugging Face": ("workable", "huggingface"),
+    "Groq": ("gem", "groq"), "Retool": ("gem", "retool"), "Rippling": ("rippling", "rippling"),
+    "Snap": ("workday", "snapchat|wd1|snap"), "Broadcom": ("workday", "broadcom|wd1|External_Career"), "Zoom": ("workday", "zoom|wd5|Zoom"),
+    "eBay": ("workday", "ebay|wd5|apply"), "Etsy": ("workday", "etsy|wd5|Etsy_Careers"), "CPP Investments": ("workday", "cppib|wd10|cppinvestments"),
+    "Morgan Stanley": ("workday", "ms|wd5|External"), "Ecobee": ("workday", "generac|wd5|External"), "Arctic Wolf": ("workday", "arcticwolf|wd1|External"),
+    "Millennium": ("eightfold", "career.mlp.com|mlp.com"), "Susquehanna": ("icims", "careers-sig.icims.com"),
+    "Two Sigma": ("avature", "careers.twosigma.com/careers/OpenRoles"), "Bloomberg": ("avature", "bloomberg.avature.net/careers/SearchJobs"),
+    "EA": ("avature", "jobs.ea.com/en_US/careers/SearchJobs"), "Scotiabank": ("successfactors", "jobs.scotiabank.com"),
+    "Intuit": ("radancy", "jobs.intuit.com"), "Atlassian": ("atlassian", "atlassian"),
+    # Boards that exist but are empty/stale; these come through the GitHub lists instead.
+    "Hudson River Trading": ("none", None), "Deel": ("none", None), "Confluent": ("none", None),
 }
 SUFFIX = re.compile(r"\b(inc|llc|ltd|corp|corporation|co|company|group|holdings|technologies|technology|labs|"
                     r"the|plc|lp|l p|na|n a|us|usa|canada|careers)\b")
@@ -132,7 +148,8 @@ def probe_guess(c):
 
 def resolve(c, hits):
     if c["name"] in MANUAL:
-        return MANUAL[c["name"]]
+        ats, slug = MANUAL[c["name"]]
+        return {"ats": ats, "slug": slug} if slug else {"ats": "none"}
     if c["name"] in CUSTOM:
         return {"ats": "custom", "slug": CUSTOM[c["name"]]}
     counter = collections.Counter()
@@ -155,7 +172,7 @@ def main():
     todo = [c for c in companies if not existing.get(c["name"], {}).get("manual")]
     with ThreadPoolExecutor(16) as pool:
         resolved = dict(zip([c["name"] for c in todo], pool.map(lambda c: resolve(c, hits), todo)))
-    lines = ["# One line per company. ats: greenhouse|lever|ashby|workday|smartrecruiters|workable|bamboohr|recruitee|oracle|custom|none",
+    lines = ["# One line per company. ats: any key of FETCHERS in sources/ats.py, custom (sources/custom.py), or none",
              "# Workday slug = tenant|wdN|site, Oracle slug = host|siteNumber. `manual: true` = discover.py won't overwrite.",
              "# ats: none -> still covered via the GitHub lists (matching roles forwarded to #company-roles)."]
     for c in companies:
