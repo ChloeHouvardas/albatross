@@ -13,11 +13,14 @@ client = httpx.Client(
 
 
 def _req(method, url, **kw):
-    """One retry on timeouts / 5xx / 429 — transient blips shouldn't count as a failed source."""
-    for attempt in range(2):
+    """Retry timeouts / 5xx once and rate limits (429) up to 3x — transient blips shouldn't fail a source."""
+    for attempt in range(4):
         try:
             r = client.request(method, url, **kw)
-            if r.status_code in (429, 500, 502, 503, 504) and attempt == 0:
+            if r.status_code == 429 and attempt < 3:
+                time.sleep(min(float(r.headers.get("retry-after", 0) or 0) or 10 * (attempt + 1), 60))
+                continue
+            if r.status_code in (500, 502, 503, 504) and attempt == 0:
                 time.sleep(3)
                 continue
             r.raise_for_status()

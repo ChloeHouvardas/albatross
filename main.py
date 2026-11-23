@@ -177,6 +177,8 @@ def main():
     results, errors = run_all(tasks)
     print(f"fetched {len(results)}/{len(tasks)} sources in {time.time() - t0:.0f}s, {len(errors)} errors")
     if args.flood:
+        for key, err in sorted(errors.items()):
+            print(f"ERROR {key}: {err}")
         return flood(companies, tasks, results)
 
     # Companies with no direct reader still get #company-roles alerts via the GitHub lists.
