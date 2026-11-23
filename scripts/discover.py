@@ -55,6 +55,7 @@ MANUAL = {  # found by hand (careers-page links, short-link resolution, slug pro
     "EA": ("avature", "jobs.ea.com/en_US/careers/SearchJobs"), "Scotiabank": ("successfactors", "jobs.scotiabank.com"),
     "Intuit": ("radancy", "jobs.intuit.com"), "Atlassian": ("atlassian", "atlassian"),
     # Boards that exist but are empty/stale; these come through the GitHub lists instead.
+    "Shield AI": ("lever", "shieldai"),
     "Hudson River Trading": ("none", None), "Deel": ("none", None), "Confluent": ("none", None),
 }
 SUFFIX = re.compile(r"\b(inc|llc|ltd|corp|corporation|co|company|group|holdings|technologies|technology|labs|"

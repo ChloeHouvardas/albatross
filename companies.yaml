@@ -247,6 +247,6 @@
 - {ats: ashby, name: Physical Intelligence, slug: physicalintelligence}
 - {ats: greenhouse, name: Figure AI, slug: figureai}
 - {ats: none, name: Skild AI}
-- {ats: ashby, name: Shield AI, slug: f7d8749a-72d6-407c-bf98-292ea630c73a}
+- {ats: lever, name: Shield AI, slug: shieldai}
 - {ats: ashby, name: Saronic, slug: saronic}
 - {ats: ashby, name: Hadrian, slug: hadrian-automation}
