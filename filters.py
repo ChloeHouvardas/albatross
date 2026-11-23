@@ -11,7 +11,7 @@ TECH = re.compile(
     r"production engineer|forward deployed|research engineer|engineering intern|\bintern(ship)?,? engineering|"
     r"\bengineer(ing)? (intern|co-?op)|technical (intern|program)|technology (analyst|intern|program)|\bit\b", re.I)
 EXCLUDE = re.compile(
-    r"\bph\.?d\b|doctoral|\bmba\b|mechanical|electrical|civil|chemical|manufactur|hardware|industrial|mechatronic|"
+    r"\bph\.?d\b|doctoral|high school|\bmba\b|mechanical|electrical|civil|chemical|manufactur|hardware|industrial|mechatronic|"
     r"marketing|\bsales\b|human resources|\bhr\b|recruit|talent|people ops|account(ing|ant)|legal|counsel|"
     r"\bdesign(er)?\b(?! engineer)|product manag|program manag|business (analyst|develop)|communications|"
     r"\bfinance\b(?! tech)|audit|tax\b|supply chain|procurement|operations intern|clinical|nurs|pharma|"

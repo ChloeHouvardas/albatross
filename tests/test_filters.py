@@ -36,6 +36,7 @@ def test_target_roles(title):
     "2027 Flight Test Engineer Intern",
     "ASIC Engineer Intern",
     "Product Design Intern",
+    "High School Internship, Software Engineering (Summer 2027)",
 ])
 def test_non_target_roles(title):
     assert not is_target_role(title), title

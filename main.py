@@ -20,6 +20,7 @@ from sources.github_lists import LISTS
 ROOT = Path(__file__).parent
 SEEN = ROOT / "data" / "seen.json"
 HEALTH = ROOT / "data" / "health.json"
+ROLES = ROOT / "data" / "roles.json"   # tracker feed for the Google Sheet (scripts/tracker.gs)
 PRUNE_DAYS = 180
 FLOOD_CAP = 30       # more new matches than this from one source in one run = probably a feed change
 PUSH_CAP = 8         # individual phone pushes per run before collapsing into one summary push
@@ -105,6 +106,44 @@ def flood(companies, tasks, results):
     print(f"flood: {len(company)} company roles, {len(listings)} list listings")
     notify.discord("dump", lines)
     notify.push("Intern Radar flood-fill done", f"{len(company)} company roles + {len(listings)} listings posted to #dump", priority=3)
+
+
+def update_tracker(results, now):
+    """Every open matching role from any source, merged by company+title, with first-seen / open-closed status."""
+    roles = load(ROLES, {})
+    current = {}
+    for key, jobs in results.items():
+        for j in jobs:
+            label = matches(j)
+            if not label:
+                continue
+            rid = norm_name(j.company) + "|" + norm_name(j.title)
+            r = current.setdefault(rid, {"company": j.company, "title": j.title, "url": j.url, "label": label,
+                                         "locations": [], "posted": j.posted, "srcs": []})
+            if not key.startswith("list:") and r["srcs"] and all(s.startswith("list:") for s in r["srcs"]):
+                r["url"], r["company"] = j.url, j.company  # prefer the company's own posting link
+            r["srcs"] = sorted(set(r["srcs"]) | {key})
+            for loc in j.locations:
+                if loc and loc not in r["locations"]:
+                    r["locations"].append(loc)
+            if label.startswith("🔥") or (label.startswith("🍁") and not r["label"].startswith("🔥")):
+                r["label"] = label
+            if j.posted and (not r["posted"] or j.posted < r["posted"]):
+                r["posted"] = j.posted
+    for rid, r in current.items():
+        old = roles.get(rid, {})
+        locs = r.pop("locations")
+        roles[rid] = {**r, "location": " / ".join(locs)[:200],
+                      "first_seen": old.get("first_seen", now), "last_seen": now, "status": "open"}
+    ok = set(results)
+    for rid, r in roles.items():
+        # only close a role if its sources were fetched fine this run (a broken feed != a closed role)
+        if rid not in current and r["status"] == "open" and set(r.get("srcs", [])) <= ok:
+            r["status"], r["closed"] = "closed", now
+    cutoff = now - 45 * 86400
+    roles = {k: v for k, v in roles.items() if v["status"] == "open" or v.get("closed", now) >= cutoff}
+    ROLES.write_text(json.dumps(roles, indent=0, sort_keys=True, ensure_ascii=False))
+    print(f"tracker: {sum(r['status'] == 'open' for r in roles.values())} open, {len(roles)} total")
 
 
 def main():
@@ -233,6 +272,8 @@ def main():
             f"Failing: {', '.join(f'`{k}`' for k in failing) if failing else 'none'}",
         ])
         health["last_summary"] = today
+
+    update_tracker(results, now)
 
     # save (prune old ids so the file doesn't grow forever)
     cutoff = now - PRUNE_DAYS * 86400
