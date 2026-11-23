@@ -80,12 +80,40 @@ def fmt_repo(job: Job) -> str:
     return f"**{job.company}** — [{job.title}](<{job.url}>) · {loc}"
 
 
+def flood(companies, tasks, results):
+    """Dump everything open right now to #dump: company matches first, then all GitHub-list listings."""
+    direct = {norm_name(n) for k, n, _ in tasks if not k.startswith("list:")}
+    indirect = {norm_name(a) for c in companies if norm_name(c["name"]) not in direct for a in [c["name"], *c.get("aliases", [])]}
+    company, listings, seen_urls, seen_keys = [], [], set(), set()
+    for key, jobs in results.items():
+        for j in jobs:
+            if key.startswith("list:"):
+                k = (norm_url(j.url), norm_name(j.company) + "|" + norm_name(j.title))
+                if k[0] not in seen_keys and k[1] not in seen_keys:
+                    seen_keys.update(k)
+                    listings.append(j)
+                if norm_name(j.company) not in indirect or j.source == "negar":
+                    continue
+            label = matches(j)
+            if label and norm_url(j.url) not in seen_urls:
+                seen_urls.add(norm_url(j.url))
+                company.append((j, label))
+    company.sort(key=lambda x: (not x[1].startswith("🔥"), not x[1].startswith("🍁"), x[0].company.lower()))
+    listings.sort(key=lambda j: -(j.posted or 0))
+    lines = [f"# 🏢 Company roles open right now ({len(company)})"] + [fmt_company(j, l) for j, l in company]
+    lines += [f"# 📋 GitHub-list listings, newest first ({len(listings)})"] + [fmt_repo(j) for j in listings]
+    print(f"flood: {len(company)} company roles, {len(listings)} list listings")
+    notify.discord("dump", lines)
+    notify.push("Intern Radar flood-fill done", f"{len(company)} company roles + {len(listings)} listings posted to #dump", priority=3)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="print alerts, don't post or save")
     ap.add_argument("--no-seed", action="store_true", help="treat everything as new (implies --dry-run)")
     ap.add_argument("--only", help="only run sources whose key/name contains this")
     ap.add_argument("--test-alert", action="store_true", help="send one test message to every channel + phone")
+    ap.add_argument("--flood", action="store_true", help="post EVERY currently open match + list listing to #dump; doesn't touch seen.json")
     args = ap.parse_args()
     if args.no_seed:
         args.dry_run = True
@@ -108,6 +136,8 @@ def main():
     t0 = time.time()
     results, errors = run_all(tasks)
     print(f"fetched {len(results)}/{len(tasks)} sources in {time.time() - t0:.0f}s, {len(errors)} errors")
+    if args.flood:
+        return flood(companies, tasks, results)
 
     # Companies with no direct reader still get #company-roles alerts via the GitHub lists.
     direct = {norm_name(n) for k, n, _ in tasks if not k.startswith("list:")}

@@ -7,6 +7,7 @@ WEBHOOKS = {
     "company": os.environ.get("DISCORD_COMPANY", ""),
     "repo": os.environ.get("DISCORD_REPO_FEED", ""),
     "health": os.environ.get("DISCORD_HEALTH", ""),
+    "dump": os.environ.get("DISCORD_DUMP", ""),
 }
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "")
 DRY_RUN = False
