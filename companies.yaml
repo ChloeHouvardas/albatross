@@ -1,0 +1,242 @@
+# One line per company. ats: greenhouse|lever|ashby|workday|smartrecruiters|workable|bamboohr|recruitee|oracle|custom|none
+# Workday slug = tenant|wdN|site, Oracle slug = host|siteNumber. `manual: true` = discover.py won't overwrite.
+# ats: none -> still covered via the GitHub lists (matching roles forwarded to #company-roles).
+- {aliases: [Alphabet], ats: custom, name: Google, slug: google}
+- {ats: custom, name: Amazon, slug: amazon}
+- {ats: none, name: Microsoft}
+- {aliases: [Facebook], ats: none, name: Meta}
+- {ats: custom, name: Apple, slug: apple}
+- {ats: none, name: Netflix}
+- {ats: workday, name: NVIDIA, slug: nvidia|wd5|NVIDIAExternalCareerSite}
+- {ats: smartrecruiters, name: LinkedIn, slug: LinkedIn3}
+- {ats: workday, name: Salesforce, slug: salesforce|wd12|External_Career_Site}
+- {ats: workday, name: Adobe, slug: adobe|wd5|external_experienced}
+- {ats: oracle, name: Oracle, slug: eeho.fa.us2.oraclecloud.com|CX_45001}
+- {ats: none, name: IBM}
+- {ats: workday, name: Intel, slug: intel|wd1|external}
+- {aliases: [Advanced Micro Devices], ats: jibe, name: AMD, slug: careers.amd.com}
+- {ats: none, name: Qualcomm}
+- {ats: workday, name: Cisco, slug: cisco|wd5|cisco_careers}
+- {ats: oracle, name: Uber, slug: iaziqy.fa.ocs.oraclecloud.com|CX_1}
+- {ats: greenhouse, name: Airbnb, slug: airbnb}
+- {ats: none, name: Tesla}
+- {ats: greenhouse, name: SpaceX, slug: spacex}
+- {ats: greenhouse, name: Waymo, slug: waymo}
+- {ats: none, name: Intuit}
+- {ats: smartrecruiters, name: ServiceNow, slug: ServiceNow}
+- {ats: workday, name: Workday, slug: workday|wd5|Workday_Early_Career}
+- {ats: none, name: Broadcom}
+- {aliases: [Snapchat], ats: none, name: Snap}
+- {ats: lever, name: Spotify, slug: spotify}
+- {ats: none, name: Atlassian}
+- {ats: ashby, name: OpenAI, slug: openai}
+- {ats: greenhouse, name: Anthropic, slug: anthropic}
+- {ats: ashby, name: Cohere, slug: cohere}
+- {ats: greenhouse, name: Scale AI, slug: scaleai}
+- {ats: greenhouse, name: Databricks, slug: databricks}
+- {ats: ashby, name: Perplexity, slug: perplexity}
+- {ats: greenhouse, name: xAI, slug: xai}
+- {ats: none, name: Hugging Face}
+- {ats: greenhouse, name: Glean, slug: gleanwork}
+- {ats: ashby, name: Harvey, slug: harvey}
+- {aliases: [Cursor], ats: ashby, name: Anysphere, slug: cursor}
+- {ats: none, name: Character.AI}
+- {ats: ashby, name: Runway, slug: runway}
+- {ats: ashby, name: Cerebras, slug: cerebras}
+- {ats: none, name: Groq}
+- {ats: greenhouse, name: Together AI, slug: togetherai}
+- {ats: ashby, name: Pinecone, slug: pinecone}
+- {ats: lever, name: Waabi, slug: waabi}
+- {ats: none, name: Ada}
+- {ats: greenhouse, name: Jane Street, slug: janestreet}
+- {ats: none, name: Citadel}
+- {ats: none, name: Citadel Securities}
+- {aliases: [HRT], ats: ashby, name: Hudson River Trading, slug: hrt}
+- {ats: none, name: Two Sigma}
+- {aliases: [D.E. Shaw, DE Shaw], ats: none, name: D. E. Shaw}
+- {aliases: [Jump], ats: greenhouse, name: Jump Trading, slug: jumptrading}
+- {aliases: [Optiver US], ats: greenhouse, name: Optiver, slug: optiverprivate}
+- {aliases: [IMC Trading], ats: greenhouse, name: IMC, slug: imc}
+- {aliases: [SIG, Susquehanna International Group], ats: none, name: Susquehanna}
+- {aliases: [Tower Research Capital], ats: greenhouse, name: Tower Research, slug: towerresearchcapital}
+- {aliases: [Five Rings Capital], ats: greenhouse, name: Five Rings, slug: fiveringsllc}
+- {ats: greenhouse, name: DRW, slug: drweng}
+- {aliases: [Akuna Capital], ats: greenhouse, name: Akuna, slug: akunacapitaloci}
+- {aliases: [Virtu Financial], ats: greenhouse, name: Virtu, slug: virtu}
+- {aliases: [Cubist], ats: greenhouse, name: Point72, slug: point72}
+- {aliases: [Millennium Management], ats: none, name: Millennium}
+- {aliases: [Bridgewater Associates], ats: none, name: Bridgewater}
+- {ats: greenhouse, name: AQR, slug: aqr}
+- {ats: none, name: Shopify}
+- {ats: ashby, name: 1Password, slug: 1password}
+- {ats: workday, name: Clio, slug: clio|wd3|ClioCareerSite}
+- {aliases: [Lightspeed Commerce], ats: ashby, name: Lightspeed, slug: lightspeed}
+- {ats: none, name: Coveo}
+- {ats: greenhouse, name: D2L, slug: d2l}
+- {ats: none, name: OpenText}
+- {ats: jibe, name: Kinaxis, slug: kinaxis.jibeapply.com}
+- {ats: workday, name: Ciena, slug: ciena|wd5|Careers}
+- {ats: workday, name: BlackBerry, slug: bb|wd3|blackberry}
+- {ats: none, name: Arctic Wolf}
+- {ats: ashby, name: Benevity, slug: benevity}
+- {ats: greenhouse, name: Thinkific, slug: thinkific}
+- {ats: lever, name: PointClickCare, slug: pointclickcare}
+- {aliases: [ecobee], ats: none, name: Ecobee}
+- {ats: greenhouse, name: Hootsuite, slug: hootsuite}
+- {ats: lever, name: Wattpad, slug: wattpad}
+- {ats: workday, name: Autodesk, slug: autodesk|wd1|Ext}
+- {ats: none, name: SAP}
+- {ats: workday, name: Unity, slug: unitytech|wd1|Unity}
+- {ats: ashby, name: Cognition, slug: cognition}
+- {ats: ashby, name: Replit, slug: replit}
+- {ats: ashby, name: Modal, slug: modal}
+- {ats: ashby, name: Baseten, slug: baseten}
+- {ats: ashby, name: Fireworks AI, slug: fireworks}
+- {ats: ashby, name: Decagon, slug: decagon}
+- {ats: ashby, name: Sierra, slug: Sierra}
+- {ats: none, name: Hebbia}
+- {ats: ashby, name: Mercor, slug: mercor}
+- {ats: ashby, name: ElevenLabs, slug: elevenlabs}
+- {ats: ashby, name: Suno, slug: suno}
+- {ats: ashby, name: Luma AI, slug: lumaai}
+- {ats: ashby, name: Vanta, slug: vanta}
+- {ats: ashby, name: Drata, slug: drata}
+- {ats: ashby, name: Deel, slug: deel}
+- {ats: ashby, name: Clay, slug: claylabs}
+- {ats: ashby, name: PostHog, slug: posthog}
+- {ats: greenhouse, name: Warp, slug: warp}
+- {ats: ashby, name: Zed, slug: zed}
+- {ats: ashby, name: Railway, slug: railway}
+- {ats: ashby, name: Render, slug: render}
+- {ats: ashby, name: Neon, slug: neon}
+- {ats: none, name: Convex}
+- {ats: ashby, name: Resend, slug: resend}
+- {ats: ashby, name: Clerk, slug: clerk}
+- {ats: ashby, name: Mintlify, slug: mintlify}
+- {ats: none, name: Browserbase}
+- {ats: greenhouse, name: Watershed, slug: watershed}
+- {ats: ashby, name: Rogo, slug: rogo}
+- {ats: ashby, name: Abridge, slug: abridge}
+- {ats: greenhouse, name: Tenstorrent, slug: tenstorrentuniversity}
+- {ats: none, name: Xanadu}
+- {ats: none, name: Untether AI}
+- {ats: ashby, name: Sanctuary AI, slug: sanctuary}
+- {ats: ashby, name: Float, slug: float}
+- {aliases: [Wave Financial], ats: none, name: Wave}
+- {ats: ashby, name: Hopper, slug: hopper}
+- {ats: ashby, name: Jane App, slug: jane}
+- {ats: ashby, name: Klue, slug: klue}
+- {ats: greenhouse, name: Clutch, slug: clutch}
+- {ats: none, name: Borrowell}
+- {aliases: [Maple Health], ats: none, name: Maple}
+- {ats: ashby, name: Snowflake, slug: snowflake}
+- {ats: greenhouse, name: Stripe, slug: stripe}
+- {ats: greenhouse, name: Cloudflare, slug: cloudflare}
+- {ats: greenhouse, name: Datadog, slug: datadog}
+- {ats: greenhouse, name: MongoDB, slug: mongodb}
+- {ats: ashby, name: Confluent, slug: confluent}
+- {ats: none, name: HashiCorp}
+- {ats: greenhouse, name: GitLab, slug: gitlab}
+- {ats: greenhouse, name: Vercel, slug: vercel}
+- {ats: ashby, name: Supabase, slug: supabase}
+- {ats: ashby, name: Sentry, slug: sentry}
+- {aliases: [CockroachDB], ats: greenhouse, name: Cockroach Labs, slug: cockroachlabs}
+- {ats: greenhouse, name: Elastic, slug: elastic}
+- {ats: greenhouse, name: Twilio, slug: twilio}
+- {ats: greenhouse, name: Okta, slug: okta}
+- {ats: workday, name: CrowdStrike, slug: crowdstrike|wd5|crowdstrikecareers}
+- {ats: workday, name: Palo Alto Networks, slug: paloaltonetworks|wd5|panwexternalcareers}
+- {ats: greenhouse, name: Zscaler, slug: zscaler}
+- {ats: greenhouse, name: Fastly, slug: fastly}
+- {ats: none, name: DigitalOcean}
+- {ats: greenhouse, name: Grafana Labs, slug: grafanalabs}
+- {ats: ashby, name: Temporal, slug: temporal}
+- {ats: none, name: Retool}
+- {ats: workday, name: Postman, slug: postman|wd108|careers}
+- {ats: ashby, name: Docker, slug: docker}
+- {ats: greenhouse, name: Tailscale, slug: tailscale}
+- {ats: ashby, name: Linear, slug: linear}
+- {ats: greenhouse, name: Figma, slug: figma}
+- {ats: ashby, name: Notion, slug: notion}
+- {ats: greenhouse, name: Airtable, slug: airtable}
+- {ats: greenhouse, name: Asana, slug: asana}
+- {ats: greenhouse, name: Dropbox, slug: dropbox}
+- {ats: smartrecruiters, name: Canva, slug: Canva}
+- {ats: ashby, name: Miro, slug: miro}
+- {ats: ashby, name: Plaid, slug: plaid}
+- {ats: ashby, name: Ramp, slug: ramp}
+- {ats: greenhouse, name: Brex, slug: brex}
+- {ats: greenhouse, name: Mercury, slug: mercury}
+- {ats: greenhouse, name: Coinbase, slug: coinbase}
+- {ats: greenhouse, name: Robinhood, slug: robinhood}
+- {ats: greenhouse, name: Chime, slug: chime}
+- {ats: greenhouse, name: Affirm, slug: affirm}
+- {ats: greenhouse, name: SoFi, slug: sofi}
+- {aliases: [Square], ats: greenhouse, name: Block, slug: block}
+- {ats: none, name: PayPal}
+- {ats: workday, name: Visa, slug: visa|wd5|Visa}
+- {ats: workday, name: Mastercard, slug: mastercard|wd1|Campus}
+- {ats: none, name: Kraken}
+- {ats: ashby, name: Circle, slug: circle}
+- {ats: none, name: Marqeta}
+- {ats: greenhouse, name: Toast, slug: toast}
+- {ats: ashby, name: Wealthsimple, slug: wealthsimple}
+- {ats: ashby, name: Neo Financial, slug: neofinancial}
+- {ats: ashby, name: KOHO, slug: koho}
+- {ats: greenhouse, name: Questrade, slug: questrade}
+- {ats: none, name: Bloomberg}
+- {aliases: [Goldman], ats: none, name: Goldman Sachs}
+- {ats: none, name: Morgan Stanley}
+- {aliases: [JPMorgan, JP Morgan, J.P. Morgan], ats: oracle, name: JPMorgan Chase, slug: jpmc.fa.oraclecloud.com|CX_1001}
+- {ats: workday, name: Capital One, slug: capitalone|wd12|Capital_One}
+- {ats: oracle, name: American Express, slug: egug.fa.us2.oraclecloud.com|CX_1}
+- {aliases: [Royal Bank of Canada], ats: workday, name: RBC, slug: rbc|wd3|RBCEARLYTALENT1}
+- {aliases: [TD Bank, TD Securities], ats: workday, name: TD, slug: td|wd3|TD_Bank_Careers}
+- {aliases: [Bank of Montreal, BMO Financial], ats: workday, name: BMO, slug: bmo|wd3|Privileged}
+- {aliases: [Bank of Nova Scotia], ats: none, name: Scotiabank}
+- {aliases: [Canadian Imperial Bank of Commerce], ats: workday, name: CIBC, slug: cibc|wd3|campus}
+- {aliases: [National Bank of Canada], ats: greenhouse, name: National Bank, slug: national}
+- {aliases: [Desjardins Group, Mouvement Desjardins], ats: workday, name: Desjardins, slug: desjardins|wd10|Desjardins}
+- {aliases: [Manulife Financial], ats: workday, name: Manulife, slug: manulife|wd3|MFCJH_Jobs}
+- {aliases: [Sun Life Financial], ats: workday, name: Sun Life, slug: sunlife|wd3|Campus}
+- {aliases: [CPP Investment Board], ats: none, name: CPP Investments}
+- {ats: greenhouse, name: Pinterest, slug: pinterest}
+- {ats: greenhouse, name: Lyft, slug: lyft}
+- {ats: greenhouse, name: DoorDash, slug: doordashusa}
+- {ats: greenhouse, name: Instacart, slug: instacart}
+- {ats: greenhouse, name: Reddit, slug: reddit}
+- {ats: greenhouse, name: Discord, slug: discord}
+- {ats: greenhouse, name: Roblox, slug: roblox}
+- {ats: greenhouse, name: Duolingo, slug: duolingounirecruitment}
+- {ats: greenhouse, name: Twitch, slug: twitch}
+- {ats: none, name: Etsy}
+- {ats: none, name: eBay}
+- {ats: none, name: Wayfair}
+- {ats: workday, name: Zillow, slug: zillow|wd5|Zillow_Group_External}
+- {ats: workday, name: Expedia, slug: expedia|wd108|private}
+- {ats: greenhouse, name: Faire, slug: faire}
+- {ats: none, name: Whatnot}
+- {ats: lever, name: Palantir, slug: palantir}
+- {ats: none, name: Rippling}
+- {ats: greenhouse, name: Gusto, slug: gusto}
+- {ats: none, name: HubSpot}
+- {ats: none, name: Zoom}
+- {ats: greenhouse, name: Samsara, slug: samsara}
+- {ats: greenhouse, name: Verkada, slug: verkada}
+- {ats: greenhouse, name: Flexport, slug: flexport}
+- {ats: greenhouse, name: Anduril, slug: andurilindustries}
+- {aliases: [Electronic Arts], ats: none, name: EA}
+- {ats: smartrecruiters, name: Ubisoft, slug: Ubisoft2}
+- {aliases: [Riot], ats: greenhouse, name: Riot Games, slug: riotgames}
+- {aliases: [Epic], ats: greenhouse, name: Epic Games, slug: epicgames}
+- {aliases: [Blizzard Entertainment, Activision Blizzard], ats: workday, name: Blizzard, slug: xboxgaming|wd1|Blizzard_External_Careers}
+- {ats: lever, name: Zoox, slug: zoox}
+- {ats: none, name: Aurora}
+- {ats: ashby, name: Skydio, slug: skydio}
+- {ats: ashby, name: Applied Intuition, slug: applied}
+- {ats: ashby, name: Physical Intelligence, slug: physicalintelligence}
+- {ats: greenhouse, name: Figure AI, slug: figureai}
+- {ats: none, name: Skild AI}
+- {ats: ashby, name: Shield AI, slug: f7d8749a-72d6-407c-bf98-292ea630c73a}
+- {ats: ashby, name: Saronic, slug: saronic}
+- {ats: ashby, name: Hadrian, slug: hadrian-automation}
