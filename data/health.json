@@ -1,30 +1,4 @@
 {
- "fails": {
-  "workday:adobe|wd5|external_experienced": 1,
-  "workday:autodesk|wd1|Ext": 1,
-  "workday:bb|wd3|blackberry": 1,
-  "workday:bmo|wd3|Privileged": 1,
-  "workday:capitalone|wd12|Capital_One": 1,
-  "workday:ciena|wd5|Careers": 1,
-  "workday:cisco|wd5|cisco_careers": 1,
-  "workday:clio|wd3|ClioCareerSite": 1,
-  "workday:crowdstrike|wd5|crowdstrikecareers": 1,
-  "workday:expedia|wd108|private": 1,
-  "workday:intel|wd1|external": 1,
-  "workday:manulife|wd3|MFCJH_Jobs": 1,
-  "workday:mastercard|wd1|Campus": 1,
-  "workday:nvidia|wd5|NVIDIAExternalCareerSite": 1,
-  "workday:paloaltonetworks|wd5|panwexternalcareers": 1,
-  "workday:postman|wd108|careers": 1,
-  "workday:rbc|wd3|RBCEARLYTALENT1": 1,
-  "workday:salesforce|wd12|External_Career_Site": 1,
-  "workday:sunlife|wd3|Campus": 1,
-  "workday:td|wd3|TD_Bank_Careers": 1,
-  "workday:unitytech|wd1|Unity": 1,
-  "workday:visa|wd5|Visa": 1,
-  "workday:workday|wd5|Workday_Early_Career": 1,
-  "workday:xboxgaming|wd1|Blizzard_External_Careers": 1,
-  "workday:zillow|wd5|Zillow_Group_External": 1
- },
+ "fails": {},
  "last_summary": "2026-11-23"
 }
