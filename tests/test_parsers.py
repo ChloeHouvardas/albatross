@@ -55,3 +55,21 @@ def test_negar_readme():
 def test_norm_url():
     assert norm_url("https://X.com/a/?utm_source=Simplify&ref=Simplify") == "https://x.com/a"
     assert norm_url("https://x.com/a?gh_jid=5&utm_source=y") == "https://x.com/a?gh_jid=5"
+
+
+def test_successfactors_rss(monkeypatch):
+    rss = """<rss><channel><item><title><![CDATA[Software Developer Co-op - Summer 2027 (Toronto, ON, CA, M5H 1H1)]]></title>
+<link>https://jobs.scotiabank.com/job/Toronto-Software-Developer/1234567/</link></item></channel></rss>"""
+    monkeypatch.setattr(ats, "get_text", lambda url, **kw: rss)
+    [j] = ats.successfactors("Scotiabank", "jobs.scotiabank.com")
+    assert (j.title, j.locations, j.native_id) == ("Software Developer Co-op - Summer 2027", ["Toronto, ON, CA, M5H 1H1"], "1234567")
+
+
+def test_avature(monkeypatch):
+    page = """<article class="article article--result"><h3><a class="link" href="https://x.avature.net/careers/JobDetail/SWE-Intern/42">
+    Software Engineering Internship (Summer 2027) </a></h3><div class="subtitle"><span>United States - NY New York</span></div>
+    <a href="#">Apply</a></article>"""
+    pages = iter([page, ""])
+    monkeypatch.setattr(ats, "get_text", lambda url, **kw: next(pages))
+    [j] = ats.avature("Two Sigma", "x.avature.net/careers/SearchJobs")
+    assert (j.native_id, j.title, j.locations) == ("42", "Software Engineering Internship (Summer 2027)", ["United States - NY New York"])
