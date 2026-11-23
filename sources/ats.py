@@ -56,7 +56,9 @@ def workday(company, slug):
         offset = 0
         while offset < 200:
             data = post_json(f"{base}/wday/cxs/{tenant}/{site}/jobs",
-                             {"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": query})
+                             {"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": query},
+                             headers={"Origin": base, "Referer": f"{base}/{site}", "Accept-Language": "en-US",
+                                      "Accept": "application/json", "Content-Type": "application/json"})
             posts = data.get("jobPostings", [])
             for j in posts:
                 path = j.get("externalPath", "")
