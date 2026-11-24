@@ -13,17 +13,21 @@ on:
         description: "Post every currently open role + listing to #dump (doesn't change seen roles)"
         type: boolean
         default: false
+      chain:
+        description: "Internal: keep the hourly self-scheduling loop going"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
-
-concurrency:
-  group: radar
-  cancel-in-progress: false
+  actions: write
 
 jobs:
   run:
     runs-on: ubuntu-latest
+    concurrency:
+      group: radar
+      cancel-in-progress: false
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
@@ -50,3 +54,20 @@ jobs:
           git commit -q -m "radar: update seen roles [skip ci]"
           for i in 1 2 3; do git pull -q --rebase && git push -q && exit 0; sleep 5; done
           exit 1
+
+  # GitHub's cron never fires for this repo, so the loop re-dispatches itself: wait ~1h, then start
+  # the next run (GITHUB_TOKEN may trigger workflow_dispatch). Separate job so manual runs aren't blocked.
+  next:
+    needs: run
+    if: ${{ always() && inputs.chain }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    concurrency:
+      group: radar-chain
+      cancel-in-progress: false
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sleep 3300
+          gh workflow run radar -R ${{ github.repository }} -f chain=true
