@@ -73,3 +73,21 @@ def test_avature(monkeypatch):
     monkeypatch.setattr(ats, "get_text", lambda url, **kw: next(pages))
     [j] = ats.avature("Two Sigma", "x.avature.net/careers/SearchJobs")
     assert (j.native_id, j.title, j.locations) == ("42", "Software Engineering Internship (Summer 2027)", ["United States - NY New York"])
+
+
+def test_zapply_readme():
+    md = """| Company | Role | Location | Posted | Visa | **Apply** |
+|---------|------|----------|--------|------|----------|
+| **Roblox** | \\[Summer 2027 Canada\\] Software Engineer Intern, Engine | Vancouver, BC | 5d |  | [<img src="images/apply.png" width="100" alt="Apply">](https://zapply.jobs/l/d/greenhouse-roblox-1?s=gh) |
+"""
+    [j] = github_lists.parse_zapply(md)
+    assert (j.company, j.title, j.locations) == ("Roblox", "[Summer 2027 Canada] Software Engineer Intern, Engine", ["Vancouver, BC"])
+
+
+def test_mtl_readme():
+    md = """| Employer | Role | Start term | Category | Locations | Posted | Application |
+| --- | --- | --- | --- | --- | --- | --- |
+| GIRO | Software Developer Intern | Winter 2027 | Software | Montreal, QC, Canada | 2026-08-31 | [Apply](https://giro.example/job/1) |
+"""
+    [j] = github_lists.parse_mtl(md)
+    assert (j.company, j.extra, j.locations, j.url) == ("GIRO", "Winter 2027", ["Montreal, QC, Canada"], "https://giro.example/job/1")

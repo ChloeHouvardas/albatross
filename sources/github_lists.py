@@ -52,3 +52,50 @@ def negar():
 
 
 LISTS = {"simplify": simplify, "vansh": vansh, "negar": negar}
+
+
+# --- Canada-only lists: feed #albatross-toronto only, never #repo-feed / #company-roles ---
+COAWP = "https://raw.githubusercontent.com/coawp-com/Canadian-Tech-Internships-2027/main/listings.json"
+ZAPPLY = "https://raw.githubusercontent.com/zapplyjobs/Canada-Internships-2027/main/README.md"
+MTL = "https://raw.githubusercontent.com/Jeffrey-dai17/montreal-internships/main/README.md"
+
+
+def coawp():
+    return [Job("coawp", x["company"], x["id"], x["title"], x["apply_url"], x.get("locations") or [],
+                extra=" ".join(x.get("terms") or []))
+            for x in get_json(COAWP) if x.get("type", "internship") == "internship"]
+
+
+def _table_rows(md, ncols):
+    for line in md.splitlines():
+        if not line.startswith("| "):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split(" | ")]
+        if len(cells) != ncols or set(cells[0]) <= set("-: ") or cells[0] in ("Company", "Employer"):
+            continue
+        m = _LINK.search(cells[-1])
+        if m:
+            yield cells, m.group(1)
+
+
+def parse_zapply(md):
+    # | **Company** | Role | Location | Posted | Visa | [<img ...>](url) |  — also lists new-grad roles
+    return [Job("zapply", c[0].strip("* "), norm_url(url), c[1].replace("\\", ""), url, [c[2]])
+            for c, url in _table_rows(md, 6)]
+
+
+def parse_mtl(md):
+    # | Employer | Role | Start term | Category | Locations | Posted | [Apply](url) |
+    return [Job("mtl", c[0], norm_url(url), c[1], url, [c[4]], extra=c[2]) for c, url in _table_rows(md, 7)]
+
+
+def zapply():
+    return parse_zapply(get_text(ZAPPLY))
+
+
+def mtl():
+    return parse_mtl(get_text(MTL))
+
+
+CA_LISTS = {"coawp": coawp, "zapply": zapply, "mtl": mtl}
+INTERN_ONLY = {"simplify", "vansh", "negar", "coawp", "mtl"}  # every row is an internship, even if the title doesn't say so
