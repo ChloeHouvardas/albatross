@@ -3,7 +3,7 @@
 Personal project. Spec: `docs/PRD.md`. Goal over structure: catch every Summer 2027 SWE intern role fast.
 
 ## How it works
-GitHub Actions (`.github/workflows/radar.yml`) runs `main.py` every 2h: fetch all sources concurrently → filter → dedupe against `data/seen.json` → Discord + ntfy → commit `data/` back.
+GitHub Actions (`.github/workflows/radar.yml`) runs `main.py` hourly: fetch all sources concurrently → filter → dedupe against `data/seen.json` → Discord + ntfy → commit `data/` back.
 - `sources/ats.py` — greenhouse, lever, ashby, workday, smartrecruiters, workable, bamboohr, recruitee, oracle, jibe. `fn(company, slug) -> list[Job]`.
 - `sources/custom.py` — amazon, google, apple. Microsoft/Meta/Tesla/Citadel etc. block bots → covered via GitHub lists.
 - `sources/github_lists.py` — Simplify, vanshb03, negarprh → `#repo-feed` (unfiltered). Matching list roles for companies with **no direct reader** are also forwarded to `#company-roles`.

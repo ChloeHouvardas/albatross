@@ -2,7 +2,7 @@ name: radar
 
 on:
   schedule:
-    - cron: "7 */2 * * *"   # every 2h (GitHub may delay scheduled runs by a few minutes)
+    - cron: "17 * * * *"   # hourly; GitHub often delays or drops scheduled runs, so hourly keeps us inside the 2h target
   workflow_dispatch:
     inputs:
       test_alert:
