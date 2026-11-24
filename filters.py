@@ -87,6 +87,28 @@ def location_label(job: Job) -> str | None:
     return None
 
 
+# #albatross-toronto: the three metros only (incl. suburbs), separate from the 🔥 labels above.
+METRO = {
+    "TOR": re.compile(r"toronto|mississauga|markham|north york|scarborough|etobicoke|vaughan|richmond hill|brampton", re.I),
+    "VAN": re.compile(r"vancouver|burnaby|richmond,? bc|surrey,? bc|coquitlam", re.I),
+    "MTL": re.compile(r"montr[eé]al|laval|longueuil|saint-laurent", re.I),
+}
+
+
+def metro_label(job: Job) -> str | None:
+    text = " / ".join(l for l in job.locations if l and not FOREIGN.search(l))
+    hit = [k for k, pat in METRO.items() if pat.search(text)]
+    return "📍 " + "/".join(hit) if hit else None
+
+
+def matches_metro(job: Job, intern_only: bool = False) -> str | None:
+    """Label if this job belongs in #albatross-toronto. intern_only: source lists only internships."""
+    title = job.title if not intern_only or INTERN.search(job.title) else job.title + " intern"
+    if not is_target_role(title) or not is_summer_2027(job):
+        return None
+    return metro_label(job)
+
+
 def matches(job: Job) -> str | None:
     """Label if this company-page job should alert, else None."""
     if not is_target_role(job.title) or not is_summer_2027(job):

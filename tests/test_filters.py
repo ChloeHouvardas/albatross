@@ -1,6 +1,6 @@
 import pytest
 
-from filters import is_summer_2027, is_target_role, location_label, matches
+from filters import is_summer_2027, is_target_role, location_label, matches, matches_metro
 from jobs import Job
 
 
@@ -78,3 +78,22 @@ def test_matches_end_to_end():
     assert matches(job("Software Engineer Intern (Summer 2027)", ["Toronto"])) == "🔥 TOR"
     assert matches(job("Software Engineer Intern (Summer 2027)", ["Austin, TX"])) is None
     assert matches(job("Marketing Intern", ["Toronto"])) is None
+
+
+@pytest.mark.parametrize("locs,label", [
+    (["Toronto, ON"], "📍 TOR"),
+    (["Mississauga, Canada"], "📍 TOR"),
+    (["Burnaby, BC", "Montréal, QC"], "📍 VAN/MTL"),
+    (["Waterloo, ON"], None),
+    (["Ottawa, ON", "Remote"], None),
+    (["London, UK", "Toronto, ON"], "📍 TOR"),
+])
+def test_metro_label(locs, label):
+    assert matches_metro(job("Software Engineer Intern", locs)) == label
+
+
+def test_metro_intern_only_lists():
+    j = job("Software Developer", ["Toronto, ON"], extra="Summer 2027")
+    assert matches_metro(j) is None
+    assert matches_metro(j, intern_only=True) == "📍 TOR"
+    assert matches_metro(job("Software Developer Intern", ["Montreal, QC"], extra="Winter 2027")) is None
