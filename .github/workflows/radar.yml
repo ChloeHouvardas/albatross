@@ -43,7 +43,7 @@ jobs:
           DISCORD_HEALTH: ${{ secrets.DISCORD_HEALTH }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           DISCORD_DUMP: ${{ secrets.DISCORD_DUMP }}
-          DISCORD_TORONTO: ${{ secrets.DISCORD_TORONTO }}
+          DISCORD_TORONTO: ${{ secrets.ALBATROSS_TORONTO }}
         run: python main.py ${{ inputs.test_alert && '--test-alert' || '' }} ${{ inputs.flood && '--flood' || '' }}
       - name: Save seen roles
         if: ${{ !inputs.test_alert && !inputs.flood }}
