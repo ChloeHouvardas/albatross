@@ -8,6 +8,7 @@ GitHub Actions (`.github/workflows/radar.yml`) runs `main.py` hourly via a self-
 - `sources/custom.py` — amazon, google, apple. Microsoft/Meta/Tesla/Citadel etc. block bots → covered via GitHub lists.
 - `sources/github_lists.py` — Simplify, vanshb03, negarprh → `#repo-feed` (unfiltered). Matching list roles for companies with **no direct reader** are also forwarded to `#company-roles`.
 - `filters.py` — role/term/location rules. Tune here when noise or misses show up; add a test case in `tests/test_filters.py`.
+- `#albatross-toronto` (`DISCORD_TORONTO`) — matching roles in Toronto/Vancouver/Montreal metros from **every** source plus Canada-only extras (`companies_canada.yaml`, `CA_LISTS` in `github_lists.py`; task keys prefixed `ca:`). Own dedupe (`seen.json["toronto"]`); `ca:` sources never reach other channels, flood or tracker. First run posts the open backlog. Off until the secret exists.
 - `companies.yaml` — built by `scripts/discover.py` (mines ATS slugs from Simplify URLs + probes APIs). Mark hand-edited entries `manual: true`.
 
 ## Rules

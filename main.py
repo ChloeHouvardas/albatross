@@ -11,11 +11,11 @@ from pathlib import Path
 import yaml
 
 import notify
-from filters import is_summer_2027, matches
+from filters import is_summer_2027, matches, matches_metro
 from jobs import Job, norm_url
 from sources import custom
 from sources.ats import FETCHERS
-from sources.github_lists import LISTS
+from sources.github_lists import CA_LISTS, INTERN_ONLY, LISTS
 
 ROOT = Path(__file__).parent
 SEEN = ROOT / "data" / "seen.json"
@@ -35,17 +35,17 @@ def norm_name(s):
     return re.sub(r"[^a-z0-9]", "", s.lower().replace("&", "and"))
 
 
-def build_tasks(companies, only=None):
-    """-> list of (key, display_name, callable)."""
+def build_tasks(companies, only=None, lists=LISTS, prefix=""):
+    """-> list of (key, display_name, callable). prefix="ca:" marks #albatross-toronto-only sources."""
     tasks = []
-    for name, fn in LISTS.items():
-        tasks.append((f"list:{name}", name, fn))
+    for name, fn in lists.items():
+        tasks.append((f"{prefix}list:{name}", name, fn))
     for c in companies:
         ats, slug, name = c.get("ats"), c.get("slug"), c["name"]
         if ats in FETCHERS and slug:
-            tasks.append((f"{ats}:{slug}", name, lambda f=FETCHERS[ats], n=name, s=slug: f(n, s)))
+            tasks.append((f"{prefix}{ats}:{slug}", name, lambda f=FETCHERS[ats], n=name, s=slug: f(n, s)))
         elif ats == "custom" and slug in custom.READERS:
-            tasks.append((f"custom:{slug}", name, lambda f=custom.READERS[slug], n=name: f(n)))
+            tasks.append((f"{prefix}custom:{slug}", name, lambda f=custom.READERS[slug], n=name: f(n)))
     if only:
         tasks = [t for t in tasks if only.lower() in t[0].lower() or only.lower() in t[1].lower()]
     return tasks
@@ -108,6 +108,41 @@ def flood(companies, tasks, results):
     notify.push("Intern Radar flood-fill done", f"{len(company)} company roles + {len(listings)} listings posted to #dump", priority=3)
 
 
+def metro_pass(results, seen, seeded_before, live, now):
+    """#albatross-toronto: matching roles in Toronto/Vancouver/Montreal from every source, own dedupe.
+    -> (new, backlog). backlog = everything open, only on the channel's first run."""
+    store = seen.setdefault("toronto", {})
+    first_run = "channel:toronto" not in seeded_before
+    new, backlog = [], []
+    # company pages first so their posting link wins over a list's copy of the same role
+    for key in sorted(results, key=lambda k: ("list:" in k, k)):
+        base = key.removeprefix("ca:")
+        src = base.removeprefix("list:") if base.startswith("list:") else None
+        src_new = []
+        for j in results[key]:
+            label = matches_metro(j, intern_only=src in INTERN_ONLY)
+            if not label:
+                continue
+            # lists spell companies differently ("Arlo" / "Arlo Technologies"), so dedupe on the first word
+            first_word = norm_name((j.company.split() or [""])[0])
+            keys = (norm_url(j.url), "t:" + first_word + "|" + norm_name(j.title))
+            live.update(keys)
+            if any(k in store for k in keys):
+                continue
+            for k in keys:
+                store[k] = now
+            if first_run:
+                backlog.append((j, label))
+            elif key in seeded_before:
+                src_new.append((j, label))
+        if len(src_new) > FLOOD_CAP:
+            notify.discord("health", [f"⚠️ `{key}` returned {len(src_new)} new Toronto/Vancouver/Montreal roles at once "
+                                      f"— probably a feed change, suppressed in #albatross-toronto."])
+        else:
+            new.extend(src_new)
+    return new, backlog
+
+
 def update_tracker(results, now, companies):
     """Every open matching role from any source, merged by company+title, with first-seen / open-closed status."""
     roles = load(ROLES, {})
@@ -160,7 +195,7 @@ def main():
     notify.DRY_RUN = args.dry_run
 
     if args.test_alert:
-        for ch in ("company", "repo", "health"):
+        for ch in ("company", "repo", "health", "toronto"):
             notify.discord(ch, [f"✅ Intern Radar test message for this channel ({ch})"])
         notify.push("Intern Radar test", "If you see this, phone pushes work ✅")
         return
@@ -169,13 +204,19 @@ def main():
     seen = load(SEEN, {"seeded": [], "company": {}, "repo": {}})
     health = load(HEALTH, {"fails": {}, "last_summary": ""})
     seeded = set() if args.no_seed else set(seen["seeded"])
+    seeded_before = set(seeded)
     now = int(time.time())
+    # #albatross-toronto is only live once its webhook secret exists (otherwise its backlog would be "used up" silently)
+    metro_on = bool(notify.WEBHOOKS["toronto"]) or args.dry_run
 
     tasks = build_tasks(companies, args.only)
-    names = {k: n for k, n, _ in tasks}
+    ca_companies = yaml.safe_load((ROOT / "companies_canada.yaml").read_text()) or [] if metro_on else []
+    ca_tasks = build_tasks(ca_companies, args.only, CA_LISTS, "ca:") if metro_on else []
+    names = {k: n for k, n, _ in tasks + ca_tasks}
     t0 = time.time()
-    results, errors = run_all(tasks)
-    print(f"fetched {len(results)}/{len(tasks)} sources in {time.time() - t0:.0f}s, {len(errors)} errors")
+    all_results, errors = run_all(tasks + ca_tasks)
+    results = {k: v for k, v in all_results.items() if not k.startswith("ca:")}  # everything except the toronto channel
+    print(f"fetched {len(all_results)}/{len(tasks) + len(ca_tasks)} sources in {time.time() - t0:.0f}s, {len(errors)} errors")
     if args.flood:
         for key, err in sorted(errors.items()):
             print(f"ERROR {key}: {err}")
@@ -247,6 +288,19 @@ def main():
         notify.push(f"+{len(company_new) - PUSH_CAP} more intern roles", "See #company-roles on Discord")
     print(f"new: {len(company_new)} company-roles, {len(repo_new)} repo-feed")
 
+    if metro_on:
+        metro_new, backlog = metro_pass(all_results, seen, seeded_before, live, now)
+        metro_new.sort(key=lambda x: (x[1], x[0].company.lower()))
+        backlog.sort(key=lambda x: (x[1], x[0].company.lower()))
+        lines = [fmt_company(j, l) for j, l in metro_new]
+        if backlog:
+            lines += [f"# 📍 Open right now in Toronto / Vancouver / Montreal ({len(backlog)})"]
+            lines += [fmt_company(j, l) for j, l in backlog]
+        notify.discord("toronto", lines)
+        seeded.update(k for k in all_results if k.startswith("ca:"))
+        seeded.add("channel:toronto")
+        print(f"toronto: {len(metro_new)} new" + (f", {len(backlog)} backlog" if backlog else ""))
+
     for key, err in sorted(errors.items()):
         print(f"ERROR {key}: {err}")
     if args.dry_run:
@@ -255,7 +309,7 @@ def main():
     # health
     fails = health["fails"]
     broken = []
-    for key in results:
+    for key in all_results:
         fails.pop(key, None)
     for key, err in errors.items():
         fails[key] = fails.get(key, 0) + 1
@@ -264,7 +318,7 @@ def main():
     # heartbeat every run so silence means "broken", not "nothing new"
     took = time.time() - now
     notify.discord("health", [
-        f"💓 {datetime.now(timezone.utc).strftime('%H:%M')} UTC — {len(results)}/{len(tasks)} sources OK in {took:.0f}s, "
+        f"💓 {datetime.now(timezone.utc).strftime('%H:%M')} UTC — {len(all_results)}/{len(names)} sources OK in {took:.0f}s, "
         f"new: {len(company_new)} company / {len(repo_new)} repo-feed"
         + (f", {len(errors)} errors" if errors else "")
     ] + broken)
@@ -276,7 +330,7 @@ def main():
         n_repo = sum(1 for t in seen["repo"].values() if t >= day_ago)
         failing = sorted(k for k, n in fails.items() if n >= FAIL_ALERT_AT)
         notify.discord("health", [
-            f"📊 **Daily summary** — {len(results)}/{len(tasks)} sources OK. "
+            f"📊 **Daily summary** — {len(all_results)}/{len(names)} sources OK. "
             f"Roles first seen in last 24h: {n_company} company / {n_repo} repo-feed (incl. seeding).",
             f"Failing: {', '.join(f'`{k}`' for k in failing) if failing else 'none'}",
         ])
@@ -286,7 +340,9 @@ def main():
 
     # save (prune old ids so the file doesn't grow forever)
     cutoff = now - PRUNE_DAYS * 86400
-    for ch in ("company", "repo"):
+    for ch in ("company", "repo", "toronto"):
+        if ch not in seen:
+            continue
         seen[ch] = {k: t for k, t in seen[ch].items() if t >= cutoff or k in live}
     seen["seeded"] = sorted(seeded)
     SEEN.parent.mkdir(exist_ok=True)
