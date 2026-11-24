@@ -261,7 +261,13 @@ def main():
         fails[key] = fails.get(key, 0) + 1
         if fails[key] == FAIL_ALERT_AT or (fails[key] > FAIL_ALERT_AT and fails[key] % 12 == 0):
             broken.append(f"🔴 `{key}` ({names.get(key, '')}) failed {fails[key]} runs in a row: {err}")
-    notify.discord("health", broken)
+    # heartbeat every run so silence means "broken", not "nothing new"
+    took = time.time() - now
+    notify.discord("health", [
+        f"💓 {datetime.now(timezone.utc).strftime('%H:%M')} UTC — {len(results)}/{len(tasks)} sources OK in {took:.0f}s, "
+        f"new: {len(company_new)} company / {len(repo_new)} repo-feed"
+        + (f", {len(errors)} errors" if errors else "")
+    ] + broken)
 
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     if datetime.now(timezone.utc).hour >= 13 and health.get("last_summary") != today:
