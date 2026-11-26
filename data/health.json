@@ -2,7 +2,8 @@
  "fails": {
   "ashby:f7d8749a-72d6-407c-bf98-292ea630c73a": 1,
   "custom:citadel": 1,
-  "custom:citadel_securities": 1
+  "custom:citadel_securities": 1,
+  "workday:ebay|wd5|apply": 1
  },
  "last_summary": "2026-11-25"
 }
