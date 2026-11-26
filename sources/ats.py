@@ -206,6 +206,25 @@ def eightfold(company, slug):
     return out
 
 
+def eightfold_pcsx(company, slug):
+    """Newer Eightfold sites (Microsoft, Qualcomm, PayPal) where /api/apply/v2 is blocked. slug = 'host|domain'."""
+    host, domain = slug.split("|")
+    out, seen = [], set()
+    for start in range(0, 400, 10):  # pcsx pages are fixed at 10
+        d = get_json(f"https://{host}/api/pcsx/search",
+                     params={"domain": domain, "query": "intern", "start": start, "sort_by": "timestamp"})["data"]
+        rows = d.get("positions") or []
+        for j in rows:
+            if j["id"] in seen:
+                continue
+            seen.add(j["id"])
+            out.append(Job("eightfold", company, str(j["id"]), j["name"], f"https://{host}{j['positionUrl']}",
+                           j.get("standardizedLocations") or j.get("locations") or [], j.get("postedTs")))
+        if len(rows) < 10 or start + 10 >= (d.get("count") or 0):
+            break
+    return out
+
+
 def icims(company, slug):
     """iCIMS career portal search pages. slug = host, e.g. 'careers-sig.icims.com'."""
     out, seen = [], set()
@@ -316,6 +335,7 @@ FETCHERS = {
     "gem": gem,
     "rippling": rippling,
     "eightfold": eightfold,
+    "eightfold_pcsx": eightfold_pcsx,
     "icims": icims,
     "avature": avature,
     "successfactors": successfactors,

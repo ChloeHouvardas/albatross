@@ -91,3 +91,39 @@ def test_mtl_readme():
 """
     [j] = github_lists.parse_mtl(md)
     assert (j.company, j.extra, j.locations, j.url) == ("GIRO", "Winter 2027", ["Montreal, QC, Canada"], "https://giro.example/job/1")
+
+
+def test_eightfold_pcsx(monkeypatch):
+    monkeypatch.setattr(ats, "get_json", lambda url, **kw: {"data": {"count": 1, "positions": [
+        {"id": 7, "name": "Software Engineer Intern", "standardizedLocations": ["Redmond, WA, US"],
+         "postedTs": 1794960000, "positionUrl": "/careers/job/7"}]}})
+    [j] = ats.eightfold_pcsx("Microsoft", "apply.careers.microsoft.com|microsoft.com")
+    assert (j.url, j.locations) == ("https://apply.careers.microsoft.com/careers/job/7", ["Redmond, WA, US"])
+
+
+def test_citadel_embedded_json(monkeypatch):
+    from sources import custom
+    page = ('x,{\\"_id\\":\\"career-citadel-com-1\\",\\"experience\\":\\"Internships\\",\\"href\\":\\"/careers/details/swe-intern-us\\",'
+            '\\"locations\\":[{\\"city\\":\\"New York\\",\\"country\\":\\"USA\\"}],\\"publishedAt\\":\\"2026-07-17T22:18:52Z\\",'
+            '\\"title\\":\\"Software Engineer - Intern (US)\\"},')
+    monkeypatch.setattr(custom, "get_text", lambda url, **kw: page)
+    [j] = custom.citadel("Citadel")
+    assert (j.title, j.url, j.locations) == ("Software Engineer - Intern (US)", "https://www.citadel.com/careers/details/swe-intern-us", ["New York, USA"])
+
+
+def test_deshaw_html(monkeypatch):
+    from sources import custom
+    page = ('<a class="x" href="/careers/software-developer-intern-new-york-summer-2027-5890"><div>svg</div>'
+            '<p><span class="job-display-name">Software Developer Intern (New York) – Summer 2027</span>')
+    monkeypatch.setattr(custom, "get_text", lambda url, **kw: page)
+    [j] = custom.deshaw("D. E. Shaw")
+    assert (j.native_id, j.locations) == ("5890", ["New York"])
+
+
+def test_ibm_search(monkeypatch):
+    from sources import custom
+    monkeypatch.setattr(custom, "post_json", lambda url, body, **kw: {"hits": {"hits": [{"_source": {
+        "title": "Software Engineer Intern 2027", "url": "https://careers.ibm.com/careers/JobDetail?jobId=1",
+        "field_keyword_19": "Toronto, CA", "field_keyword_18": "Internship"}}]}})
+    [j] = custom.ibm("IBM")
+    assert (j.native_id, j.locations) == ("1", ["Toronto, CA"])
