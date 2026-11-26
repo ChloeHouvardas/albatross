@@ -200,7 +200,7 @@ def main():
         notify.push("Intern Radar test", "If you see this, phone pushes work ✅")
         return
 
-    companies = yaml.safe_load((ROOT / "companies.yaml").read_text()) or []
+    companies = [c for f in ("companies.yaml", "companies_more.yaml") for c in yaml.safe_load((ROOT / f).read_text()) or []]
     seen = load(SEEN, {"seeded": [], "company": {}, "repo": {}})
     health = load(HEALTH, {"fails": {}, "last_summary": ""})
     seeded = set() if args.no_seed else set(seen["seeded"])

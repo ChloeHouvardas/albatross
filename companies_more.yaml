@@ -1,0 +1,344 @@
+# More employers beyond the PRD list, same format as companies.yaml; feed #company-roles + ntfy like any company.
+# Mined from Simplify/vanshb03/Boardsweep: companies with a matching Summer 2027 role in a target city and a readable board.
+# scripts/discover.py never touches this file.
+- {ats: greenhouse, name: ACLU, slug: acluinternships}
+- {ats: greenhouse, name: Addepar, slug: addepar1}
+- {ats: workday, name: AeroVironment, slug: avav|wd1|avav}
+- {ats: ashby, name: AfterQuery, slug: AfterQuery}
+- {ats: ashby, name: Agzen, slug: agzen}
+- {ats: greenhouse, name: AiDash, slug: aidashinc}
+- {ats: workday, name: Ambarella, slug: ambarella|wd108|ambarella}
+- {ats: greenhouse, name: AMCA, slug: amca}
+- {ats: workday, name: American Century Investments, slug: americancentury|wd5|AmericanCenturyInvestments}
+- {ats: greenhouse, name: Amperesand, slug: amperesand}
+- {ats: ashby, name: Amplify, slug: amplify}
+- {ats: workday, name: Analog Devices, slug: analogdevices|wd1|External}
+- {ats: workday, name: Ancestry, slug: ancestry|wd501|Careers}
+- {ats: ashby, name: Anthelion Capital, slug: anthelioncap}
+- {ats: ashby, name: Apex Technology, slug: apex-technology-inc}
+- {ats: workday, name: Apple Bank, slug: applebank|wd5|applebankcareers}
+- {ats: workday, name: Applied Materials, slug: amat|wd1|External}
+- {ats: workday, name: Aptiv, slug: aptiv|wd5|aptiv_careers}
+- {ats: greenhouse, name: Arc, slug: arcboatcompany}
+- {ats: greenhouse, name: Arcesium, slug: arcesiumllc}
+- {ats: workday, name: Arlo Technologies, slug: arlo|wd12|External_Careers}
+- {ats: ashby, name: Armadin, slug: armadin}
+- {ats: workday, name: Arrowstreet Capital, slug: arrowstreetcapital|wd5|Campus_Careers}
+- {ats: greenhouse, name: Artefact, slug: artefactlinkedin}
+- {ats: greenhouse, name: Artefact North America, slug: artefactnoram}
+- {ats: workday, name: ASML, slug: asml|wd3|asmlext1}
+- {ats: greenhouse, name: Astera Labs, slug: asteraearlycareer2027}
+- {ats: greenhouse, name: Astranis, slug: astranis}
+- {ats: ashby, name: Astro Mechanica, slug: astro-mechanica}
+- {ats: greenhouse, name: Atoms, slug: cssmerge}
+- {ats: ashby, name: Auctor, slug: auctor}
+- {ats: greenhouse, name: Axiomatic AI, slug: axiomaticai}
+- {ats: workday, name: Axos Bank, slug: axos|wd5|Axos}
+- {ats: greenhouse, name: AXQ Capital, slug: axq}
+- {ats: workday, name: Badger Meter, slug: badgermeter|wd5|US_CareerSite}
+- {ats: greenhouse, name: Baidu, slug: baidu}
+- {ats: workday, name: Barclays, slug: barclays|wd3|External_Career_Site_Barclays}
+- {ats: ashby, name: Basis Research Institute, slug: basis-research}
+- {ats: workable, name: Bask Health, slug: bask-health-1}
+- {ats: ashby, name: Bedrock Robotics, slug: bedrock-robotics}
+- {ats: ashby, name: Benchling, slug: benchling}
+- {ats: workday, name: BiblioCommons, slug: volarisgroup|wd3|BiblioCommons}
+- {ats: ashby, name: Bild AI, slug: bild-ai}
+- {ats: greenhouse, name: Biohub, slug: biohub}
+- {ats: bamboohr, name: Birdseye Security Solutions, slug: birdseyeaccount}
+- {ats: jibe, name: Blackhawk Network Holdings, slug: blackhawknetwork.jibeapply.com}
+- {ats: workday, name: BlackRock, slug: blackrock|wd1|BlackRock_Professional}
+- {ats: workday, name: Bloom Energy, slug: bloomenergy|wd1|bloomenergycareers}
+- {ats: workday, name: Blue Origin, slug: blueorigin|wd5|blueorigin}
+- {ats: oracle, name: BNY, slug: eofe.fa.us2.oraclecloud.com|CX_1001}
+- {ats: ashby, name: Bobyard, slug: bobyard}
+- {ats: workday, name: Booz Allen Hamilton, slug: bah|wd1|bah_jobs}
+- {ats: smartrecruiters, name: Bosch, slug: BoschGroup}
+- {ats: workday, name: Bose, slug: boseallaboutme|wd503|Bose_Careers}
+- {ats: greenhouse, name: Bracebridge Capital, slug: bracebridgecapital}
+- {ats: greenhouse, name: Braze, slug: braze}
+- {ats: ashby, name: Bridge Neurotech, slug: bridgeneurotech}
+- {ats: greenhouse, name: C3.ai, slug: c3ascend}
+- {ats: workday, name: Cadence Design Systems, slug: cadence|wd1|Univ_Careers}
+- {ats: workday, name: CAE, slug: cae|wd3|career}
+- {ats: oracle, name: Cantor Fitzgerald, slug: hdow.fa.us6.oraclecloud.com|CX_1003}
+- {ats: greenhouse, name: Capital Technology Group, slug: capitaltg}
+- {ats: greenhouse, name: CarGurus, slug: ecjobb}
+- {ats: ashby, name: Certa, slug: certa}
+- {ats: lever, name: CesiumAstro, slug: CesiumAstro}
+- {ats: ashby, name: Cheiron, slug: cheiron}
+- {ats: ashby, name: Circleback, slug: circleback}
+- {ats: oracle, name: Citco, slug: fa-euxc-saasfaprod1.fa.ocs.oraclecloud.com|CX_1}
+- {ats: workday, name: Citi, slug: citi|wd5|2}
+- {ats: workday, name: Clearwater Analytics, slug: clearwateranalytics|wd1|Clearwater_Analytics_Careers}
+- {ats: greenhouse, name: Clockwork Systems, slug: clockworksystems}
+- {ats: workday, name: CME Group, slug: cmegroup|wd1|cme_careers}
+- {ats: ashby, name: CodeRabbit, slug: coderabbit}
+- {ats: workday, name: Cohesity, slug: cohesity|wd5|Cohesity_Careers}
+- {ats: ashby, name: Composio, slug: composio}
+- {ats: ashby, name: ConductorAI, slug: conductorai}
+- {ats: workday, name: Constellation Brands, slug: cbrands|wd5|CBI_External_Careers}
+- {ats: ashby, name: Constellation Space, slug: constellationspace}
+- {ats: bamboohr, name: Convverge, slug: convverge}
+- {ats: workday, name: Corpay, slug: corpay|wd103|ext_001}
+- {ats: greenhouse, name: Courier Health, slug: courierhealth}
+- {ats: ashby, name: Cowboy Space, slug: cowboyspace}
+- {ats: bamboohr, name: Critical Environment Technologies, slug: cetci}
+- {ats: ashby, name: CTGT, slug: ctgt}
+- {ats: workday, name: CVS Health, slug: cvshealth|wd1|CVS_Health_Careers}
+- {ats: workday, name: Danaher, slug: danaher|wd1|DanaherJobs}
+- {ats: ashby, name: Dandy, slug: dandy}
+- {ats: workday, name: DataRobot, slug: datarobot|wd1|DataRobot_External_Careers}
+- {ats: ashby, name: Dedalus Labs, slug: dedalus-labs}
+- {ats: workable, name: Digital Control, slug: digital-control}
+- {ats: workday, name: DraftKings, slug: draftkings|wd1|Campus_Career_Portal}
+- {ats: workday, name: Draper, slug: draper|wd5|Draper_Careers}
+- {ats: smartrecruiters, name: DreamWorks Animation, slug: NBCUniversal3}
+- {ats: greenhouse, name: DriveWealth, slug: drivewealth}
+- {ats: ashby, name: Droyd Robotics, slug: droyd}
+- {ats: oracle, name: DTCC, slug: ebxr.fa.us2.oraclecloud.com|CX_1}
+- {ats: greenhouse, name: DV Trading, slug: dvtrading}
+- {ats: workable, name: Ecliptic Enterprises, slug: ecliptic-enterprises-corporation}
+- {ats: workable, name: Eluvio, slug: eluvio}
+- {ats: greenhouse, name: Emergent Labs, slug: emergentlabsinc}
+- {ats: ashby, name: Engramme, slug: engramme}
+- {ats: lever, name: EP Wealth Advisors, slug: epwealth}
+- {ats: greenhouse, name: EQT Corporation, slug: eqtcorporation}
+- {ats: ashby, name: Espa AI, slug: espa}
+- {ats: greenhouse, name: Esri, slug: studentprogram}
+- {ats: ashby, name: Etched, slug: Etched}
+- {ats: greenhouse, name: Eulerity, slug: eulerity}
+- {ats: workday, name: Eversource Energy, slug: eversource|wd1|ExternalSite}
+- {ats: ashby, name: Exa, slug: exa}
+- {ats: workday, name: F5, slug: ffive|wd5|f5jobs}
+- {ats: ashby, name: F7d8749a 72d6 407c Bf98 292ea630c73a, slug: shield}
+- {ats: lever, name: Field AI, slug: field-ai}
+- {ats: lever, name: Firework, slug: fireworkhq}
+- {ats: ashby, name: First Resonance, slug: first-resonance}
+- {ats: greenhouse, name: Flagship Pioneering, slug: flagshippioneeringinc}
+- {ats: ashby, name: Flint, slug: flint}
+- {ats: greenhouse, name: Flow Traders, slug: flowtraders}
+- {ats: workday, name: FormFactor, slug: formfactor|wd1|FFI-Careers}
+- {ats: ashby, name: Formulary Financial, slug: formulary}
+- {ats: oracle, name: Fortinet, slug: edel.fa.us2.oraclecloud.com|CX_2001}
+- {ats: ashby, name: Forus, slug: forus}
+- {ats: greenhouse, name: Found Energy, slug: foundenergy}
+- {ats: ashby, name: FSH Technologies, slug: FSH}
+- {ats: workday, name: GE Vernova, slug: gevernova|wd5|vernova_externalsite}
+- {ats: ashby, name: Gecko Robotics, slug: gecko-robotics}
+- {ats: greenhouse, name: Gemini, slug: gemini}
+- {ats: workday, name: Genentech, slug: roche|wd3|ROG-A2O-GENE}
+- {ats: workday, name: General Motors, slug: generalmotors|wd5|Careers_GM}
+- {ats: ashby, name: Genesis Molecular AI, slug: genesis-molecular-ai}
+- {ats: ashby, name: Genius AI, slug: geniusai}
+- {ats: ashby, name: Georgian Partners Growth, slug: georgian}
+- {ats: bamboohr, name: GeoSpectrum Technologies, slug: geospectrum}
+- {ats: workday, name: GlobalFoundries, slug: globalfoundries|wd1|External}
+- {ats: workday, name: Gorbel, slug: gorbel|wd501|gorbelcareers}
+- {ats: ashby, name: GrayMatter Robotics, slug: graymatter-robotics}
+- {ats: ashby, name: Gritt, slug: gritt}
+- {ats: greenhouse, name: GSA Capital, slug: gsacapital}
+- {ats: greenhouse, name: Haize Labs, slug: haizelabs}
+- {ats: ashby, name: Happyrobot, slug: happyrobot.ai}
+- {ats: greenhouse, name: HeartFlow, slug: heartflowinc}
+- {ats: ashby, name: Heliux, slug: heliux}
+- {ats: lever, name: Hermeus, slug: hermeus}
+- {ats: ashby, name: Heron Power, slug: heron-power}
+- {ats: workday, name: Hewlett Packard Enterprise, slug: hpe|wd5|jobsathpe}
+- {ats: ashby, name: Hex Technologies, slug: hex}
+- {ats: oracle, name: Hexaware, slug: fa-etqo-saasfaprod1.fa.ocs.oraclecloud.com|CX_1}
+- {ats: workday, name: Highmark Health, slug: highmarkhealth|wd1|highmark}
+- {ats: workday, name: Hitachi, slug: hitachi|wd1|hitachi}
+- {ats: oracle, name: Honeywell, slug: ibqbjb.fa.ocs.oraclecloud.com|Honeywell}
+- {ats: oracle, name: Honeywell Aerospace, slug: icfcjb.fa.ocs.oraclecloud.com|Aerospace}
+- {ats: greenhouse, name: Horizon Trading Solutions, slug: horizontradingsolutions}
+- {ats: workday, name: HP, slug: hp|wd5|externalcareersite}
+- {ats: greenhouse, name: HP IQ, slug: hpiq}
+- {ats: greenhouse, name: HPR (Hyannis Port Research), slug: hyannisportresearch}
+- {ats: recruitee, name: Huawei, slug: huaweicanada}
+- {ats: greenhouse, name: ID.me, slug: idmeuniversityrecruiting}
+- {ats: workday, name: Illinois Tool Works, slug: itw|wd5|external}
+- {ats: ashby, name: Illumio, slug: illumio}
+- {ats: smartrecruiters, name: Inbulks, slug: InbulksCorp}
+- {ats: smartrecruiters, name: InfiniteQuant, slug: InfiniteQuant}
+- {ats: greenhouse, name: Instead, slug: instead}
+- {ats: lever, name: Institute of Foundation Models, slug: ifm-us}
+- {ats: workday, name: Insulet, slug: insulet|wd5|insuletcareers}
+- {ats: ashby, name: Integrate, slug: integrate}
+- {ats: jibe, name: Intercontinental Exchange, slug: ice.jibeapply.com}
+- {ats: ashby, name: Interplay, slug: interplay}
+- {ats: smartrecruiters, name: Intuitive Surgical, slug: Intuitive}
+- {ats: greenhouse, name: Inversion Space, slug: inversionspace}
+- {ats: workday, name: iRhythm Technologies, slug: irhythmtech|wd5|irhythm}
+- {ats: greenhouse, name: ISO New England, slug: studentinternships}
+- {ats: workday, name: Jain Global, slug: jainglobal|wd5|ExternalSite}
+- {ats: greenhouse, name: Judi Health, slug: judihealth}
+- {ats: ashby, name: K-ID, slug: k-id}
+- {ats: ashby, name: Kira, slug: kira}
+- {ats: lever, name: Kitware, slug: kitware}
+- {ats: workday, name: KLA, slug: kla|wd1|UR}
+- {ats: ashby, name: Kognitos, slug: Kognitos}
+- {ats: ashby, name: kos.ai, slug: kos.ai}
+- {ats: greenhouse, name: KRAFTON, slug: studiokraftonboard}
+- {ats: ashby, name: Laminar, slug: laminar-jobs}
+- {ats: ashby, name: Latent Defense, slug: latent%20defense}
+- {ats: smartrecruiters, name: Lawrence Livermore National Laboratory (LLNL), slug: LLNL}
+- {ats: oracle, name: Lazard, slug: icbpjb.fa.ocs.oraclecloud.com|LazardProfessionalCareers}
+- {ats: ashby, name: Lean Techniques, slug: leantechniques}
+- {ats: greenhouse, name: Lightmatter, slug: lightmatter}
+- {ats: greenhouse, name: Lila Sciences, slug: lilasciences}
+- {ats: workday, name: LSEG, slug: lseg|wd3|Graduate_Careers}
+- {ats: workday, name: Lumentum, slug: lumentum|wd5|LITE}
+- {ats: workday, name: M&T Bank, slug: mtb|wd5|Campus}
+- {ats: oracle, name: Macy's, slug: ebwh.fa.us2.oraclecloud.com|CX_1001}
+- {ats: lever, name: Make Rain, slug: make-rain}
+- {ats: greenhouse, name: Man Group, slug: mangroup}
+- {ats: workday, name: Markel Group, slug: markelcorp|wd5|GlobalCareers}
+- {ats: greenhouse, name: Marshall Wace, slug: mwinternshipprogram}
+- {ats: workday, name: Marvell, slug: marvell|wd1|MarvellCareers}
+- {ats: lever, name: Match Group, slug: matchgroup}
+- {ats: ashby, name: Maxinsights, slug: maxinsights}
+- {ats: ashby, name: MegazoneCloud, slug: megazone}
+- {ats: ashby, name: Meshy, slug: meshy}
+- {ats: ashby, name: Metalenz, slug: metalenz}
+- {ats: ashby, name: Metamorphic, slug: metamorphic}
+- {ats: workday, name: Micron Technology, slug: micron|wd1|External}
+- {ats: workday, name: Mizuho Securities, slug: mizuho|wd1|Mizuho_Confidential}
+- {ats: workday, name: Moderna, slug: modernatx|wd1|M_tx}
+- {ats: workday, name: Monolithic Power Systems, slug: monolithicpower|wd12|MPS_Careers}
+- {ats: greenhouse, name: Morse Corp, slug: morsecorpcoop}
+- {ats: workday, name: Multimatic, slug: multimatic|wd10|MMEC}
+- {ats: lever, name: Multiply Labs, slug: multiplylabs}
+- {ats: greenhouse, name: Muon Space, slug: muonspace}
+- {ats: greenhouse, name: Nasdaq, slug: nasdaq}
+- {ats: greenhouse, name: Neros Technologies, slug: nerostechnologies}
+- {ats: greenhouse, name: Neuralink, slug: neuralink}
+- {ats: greenhouse, name: New York ISO, slug: nyisointernships}
+- {ats: greenhouse, name: NewsBreak, slug: newsbreak}
+- {ats: greenhouse, name: Nex, slug: nex}
+- {ats: workday, name: Nissan, slug: alliance|wd3|nissanjobs}
+- {ats: ashby, name: Niural, slug: niural}
+- {ats: ashby, name: Nooks, slug: nooks}
+- {ats: greenhouse, name: Octaura, slug: octaura}
+- {ats: ashby, name: Odys Aviation, slug: odys-aviation}
+- {ats: ashby, name: ONE Finance, slug: oneapp}
+- {ats: ashby, name: One Robot, slug: onerobot}
+- {ats: ashby, name: onepot, slug: onepot}
+- {ats: oracle, name: onsemi, slug: hctz.fa.us2.oraclecloud.com|CX_1001}
+- {ats: ashby, name: OpenArt AI, slug: openart}
+- {ats: ashby, name: OpenMind, slug: openmind}
+- {ats: greenhouse, name: OpenSesame, slug: opensesame}
+- {ats: ashby, name: OpusClip, slug: opusclip}
+- {ats: ashby, name: Pace, slug: withpace}
+- {ats: greenhouse, name: Pacific Fusion, slug: pacificfusion}
+- {ats: workday, name: Pacific Life, slug: pacificlife|wd1|PacificLifeCareers}
+- {ats: ashby, name: Pangram Labs, slug: pangramlabs}
+- {ats: ashby, name: parabola-io, slug: parabola-io}
+- {ats: greenhouse, name: Parallel Systems, slug: parallel}
+- {ats: ashby, name: Parspec, slug: parspec}
+- {ats: ashby, name: Patreon, slug: patreon}
+- {ats: greenhouse, name: PDT Partners, slug: pdtpartners}
+- {ats: jibe, name: Peraton, slug: peraton.jibeapply.com}
+- {ats: ashby, name: Phoebe, slug: phoebe-work}
+- {ats: ashby, name: Phonely, slug: phonely}
+- {ats: ashby, name: Phonic, slug: phonic}
+- {ats: bamboohr, name: Picton Mahoney Asset Management, slug: pictonmahoney}
+- {ats: ashby, name: Pika, slug: pika}
+- {ats: workday, name: PIMCO, slug: pimco|wd1|pimco-careers}
+- {ats: lever, name: Pivotal Aero, slug: pivotal}
+- {ats: ashby, name: Plot, slug: plot}
+- {ats: ashby, name: Powertown, slug: powertown}
+- {ats: greenhouse, name: Profluent, slug: profluent}
+- {ats: workday, name: PTC, slug: ptc|wd1|ptc}
+- {ats: jibe, name: Publicis Groupe, slug: publicisgroupe.jibeapply.com}
+- {ats: bamboohr, name: Punchcut, slug: punchcut}
+- {ats: greenhouse, name: Pure Storage, slug: purestorage}
+- {ats: ashby, name: Pylon, slug: pylon-labs}
+- {ats: ashby, name: Quadric, slug: quadric}
+- {ats: ashby, name: Quadrillion, slug: quadrillion-labs}
+- {ats: greenhouse, name: QuEra Computing, slug: queracomputinginc}
+- {ats: ashby, name: Qumulo, slug: qumulo}
+- {ats: ashby, name: Reflect Orbital, slug: reflect-orbital}
+- {ats: ashby, name: Reliable Robotics, slug: reliable-robotics}
+- {ats: ashby, name: Relling, slug: relling}
+- {ats: smartrecruiters, name: Renesas Electronics, slug: RenesasElectronics}
+- {ats: bamboohr, name: REXA, slug: rexa}
+- {ats: ashby, name: Rhoda AI, slug: rhoda-ai}
+- {ats: greenhouse, name: Riverlane, slug: riverlane}
+- {ats: ashby, name: Rivian and Volkswagen Group Technologies, slug: rivianvw.tech}
+- {ats: ashby, name: Roam, slug: tryroam}
+- {ats: greenhouse, name: RoboForce, slug: roboforce}
+- {ats: greenhouse, name: Rocket Lab, slug: rocketlab}
+- {ats: lever, name: RosaicLabs, slug: rosaiclabs}
+- {ats: workday, name: Ryan, slug: ryan|wd1|RyanCareers}
+- {ats: greenhouse, name: Samsung Semiconductor, slug: samsungsemiconductor}
+- {ats: ashby, name: San Francisco Data, slug: sfdata}
+- {ats: greenhouse, name: Schonfeld, slug: schonfeld}
+- {ats: workday, name: Schweitzer Engineering Laboratories, slug: selinc|wd1|SEL}
+- {ats: ashby, name: Scout AI, slug: scout-ai}
+- {ats: ashby, name: Semgrep, slug: semgrep}
+- {ats: ashby, name: Serval, slug: serval}
+- {ats: greenhouse, name: Seven Research, slug: sevenresearch}
+- {ats: greenhouse, name: SharkNinja, slug: sharkninjaoperatingllc}
+- {ats: lever, name: ShopBack, slug: shopback-2}
+- {ats: workday, name: Sierra Nevada Corporation, slug: snc|wd1|snc_external_career_site}
+- {ats: smartrecruiters, name: SightCall, slug: SightCall}
+- {ats: greenhouse, name: Sigma Computing, slug: sigmacomputing}
+- {ats: lever, name: Simbe Robotics, slug: SimbeRobotics}
+- {ats: greenhouse, name: SingleStore, slug: singlestore}
+- {ats: greenhouse, name: SK hynix memory solutions America, slug: skhynixmemorysolutionsamericainc}
+- {ats: ashby, name: Skyband Systems, slug: skyband%20systems}
+- {ats: smartrecruiters, name: Solidigm, slug: Solidigm}
+- {ats: workday, name: Sony, slug: sonyglobal|wd1|SonyGlobalCareers}
+- {ats: greenhouse, name: Soros Fund Management, slug: familyoffice}
+- {ats: workday, name: SOTI, slug: soti|wd3|SOTI-Next-Gen}
+- {ats: ashby, name: Spacial AI, slug: spacial}
+- {ats: bamboohr, name: Specter Aerospace, slug: specteraerospace}
+- {ats: bamboohr, name: SSI, slug: ssicorporate}
+- {ats: oracle, name: Standard Aero, slug: cva.fa.us1.oraclecloud.com|CX_3}
+- {ats: oracle, name: Staples, slug: fa-exhh-saasfaprod1.fa.ocs.oraclecloud.com|StaplesInc}
+- {ats: ashby, name: Steel, slug: steel}
+- {ats: ashby, name: Strada, slug: stradahq}
+- {ats: greenhouse, name: Stratolaunch, slug: stratolaunch}
+- {ats: ashby, name: Subtotal, slug: subtotal}
+- {ats: workday, name: Symbotic, slug: symbotic|wd504|Symbotic}
+- {ats: greenhouse, name: Syska Hennessy Group, slug: syskahennessy}
+- {ats: workday, name: T-Mobile, slug: tmobile|wd1|External}
+- {ats: ashby, name: Talos, slug: Talos-Trading}
+- {ats: greenhouse, name: Tanium, slug: tanium}
+- {ats: workday, name: TC Energy, slug: tcenergy|wd3|CAREER_SITE_TC}
+- {ats: workable, name: Tecsys, slug: tecsys}
+- {ats: ashby, name: TELUS Digital, slug: telus-digital}
+- {ats: ashby, name: Terranova, slug: terranova}
+- {ats: workday, name: The Aerospace Corporation, slug: aero|wd5|external}
+- {ats: greenhouse, name: The Allen Institute for AI, slug: thealleninstitute}
+- {ats: ashby, name: The Robotics Company, slug: the-robotics-company}
+- {ats: ashby, name: The Voleon Group, slug: voleon}
+- {ats: workday, name: Thomson Reuters, slug: thomsonreuters|wd5|External_Career_Site}
+- {ats: ashby, name: Tonic AI, slug: TonicAI}
+- {ats: lever, name: Toyota Research Institute, slug: tri}
+- {ats: greenhouse, name: Trace3, slug: trace3}
+- {ats: oracle, name: Tradeweb, slug: ecnf.fa.us2.oraclecloud.com|CX}
+- {ats: workday, name: Trimble, slug: trimble|wd1|TrimbleCareers}
+- {ats: greenhouse, name: Truveta, slug: truveta}
+- {ats: workable, name: TWG Global, slug: twgai}
+- {ats: greenhouse, name: USAFacts, slug: usafacts}
+- {ats: greenhouse, name: Varda Space Industries, slug: vardaspace}
+- {ats: greenhouse, name: Veeam Software, slug: veeamsoftware}
+- {ats: ashby, name: Veeda AI, slug: veeda-ai}
+- {ats: lever, name: Veeva Systems, slug: veeva}
+- {ats: greenhouse, name: Viam, slug: viamrobotics}
+- {ats: ashby, name: Vital Lyfe, slug: vital-lyfe}
+- {ats: greenhouse, name: Voyager Technologies, slug: voyagertechnologiesinc}
+- {ats: workday, name: Warner Bros., slug: warnerbros|wd5|global}
+- {ats: smartrecruiters, name: Western Digital, slug: WesternDigital}
+- {ats: greenhouse, name: Wikimedia Foundation, slug: wikimedia}
+- {ats: greenhouse, name: Workstream, slug: workstream}
+- {ats: greenhouse, name: Wurl, slug: wurljobs}
+- {ats: greenhouse, name: Xantium, slug: xantium}
+- {ats: ashby, name: Xona Space Systems, slug: xona-space}
+- {ats: greenhouse, name: XPENG, slug: xpengmotors}
+- {ats: ashby, name: Zip, slug: zip}
+- {ats: greenhouse, name: ZipRecruiter, slug: ziprecruiter}
+- {ats: smartrecruiters, name: Zoomifier, slug: CustomShow}
+- {ats: ashby, name: Zus Health, slug: zus-health}
