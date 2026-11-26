@@ -19,8 +19,7 @@ from sources.github_lists import SIMPLIFY  # noqa: E402
 from sources.http import client, get_json  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-CUSTOM = {"Amazon": "amazon", "Google": "google", "Apple": "apple", "IBM": "ibm", "Citadel": "citadel",
-          "Citadel Securities": "citadel_securities", "D. E. Shaw": "deshaw"}
+CUSTOM = {"Amazon": "amazon", "Google": "google", "Apple": "apple", "IBM": "ibm", "D. E. Shaw": "deshaw"}
 # Extra names companies go by in the GitHub lists / on their boards.
 ALIASES = {
     "RBC": ["Royal Bank of Canada"], "TD": ["TD Bank", "TD Securities"], "BMO": ["Bank of Montreal", "BMO Financial"],
@@ -62,7 +61,8 @@ MANUAL = {  # found by hand (careers-page links, short-link resolution, slug pro
     "Hudson River Trading": ("greenhouse", "wehrtyou"), "Noom": ("greenhouse", "noomgrowth"), "Skild AI": ("greenhouse", "skildai-careers"),
     "Goldman Sachs": ("oracle", "hdpc.fa.us2.oraclecloud.com|LateralHiring"),
     # JS-only career sites with private APIs (Meta, Tesla, Shopify, SAP, Coveo, ...) stay on the GitHub lists.
-    "Deel": ("none", None), "Confluent": ("none", None),
+    # Citadel / Citadel Securities: custom readers exist but their sites 403 GitHub Actions IPs.
+    "Citadel": ("none", None), "Citadel Securities": ("none", None), "Deel": ("none", None), "Confluent": ("none", None),
 }
 SUFFIX = re.compile(r"\b(inc|llc|ltd|corp|corporation|co|company|group|holdings|technologies|technology|labs|"
                     r"the|plc|lp|l p|na|n a|us|usa|canada|careers)\b")

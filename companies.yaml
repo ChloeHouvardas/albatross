@@ -49,8 +49,8 @@
 - {ats: lever, name: Waabi, slug: waabi}
 - {ats: greenhouse, name: Ada, slug: ada18}
 - {ats: greenhouse, name: Jane Street, slug: janestreet}
-- {ats: custom, name: Citadel, slug: citadel}
-- {ats: custom, name: Citadel Securities, slug: citadel_securities}
+- {ats: none, name: Citadel}
+- {ats: none, name: Citadel Securities}
 - {aliases: [HRT], ats: greenhouse, name: Hudson River Trading, slug: wehrtyou}
 - {ats: avature, name: Two Sigma, slug: careers.twosigma.com/careers/OpenRoles}
 - {aliases: [D.E. Shaw, DE Shaw], ats: custom, name: D. E. Shaw, slug: deshaw}
