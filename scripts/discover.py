@@ -19,7 +19,8 @@ from sources.github_lists import SIMPLIFY  # noqa: E402
 from sources.http import client, get_json  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-CUSTOM = {"Amazon": "amazon", "Google": "google", "Apple": "apple"}
+CUSTOM = {"Amazon": "amazon", "Google": "google", "Apple": "apple", "IBM": "ibm", "Citadel": "citadel",
+          "Citadel Securities": "citadel_securities", "D. E. Shaw": "deshaw"}
 # Extra names companies go by in the GitHub lists / on their boards.
 ALIASES = {
     "RBC": ["Royal Bank of Canada"], "TD": ["TD Bank", "TD Securities"], "BMO": ["Bank of Montreal", "BMO Financial"],
@@ -56,7 +57,12 @@ MANUAL = {  # found by hand (careers-page links, short-link resolution, slug pro
     "Intuit": ("radancy", "jobs.intuit.com"), "Atlassian": ("atlassian", "atlassian"),
     # Boards that exist but are empty/stale; these come through the GitHub lists instead.
     "Shield AI": ("lever", "shieldai"),
-    "Hudson River Trading": ("none", None), "Deel": ("none", None), "Confluent": ("none", None),
+    "Microsoft": ("eightfold_pcsx", "apply.careers.microsoft.com|microsoft.com"), "Qualcomm": ("eightfold_pcsx", "qualcomm.eightfold.ai|qualcomm.com"),
+    "PayPal": ("eightfold_pcsx", "paypal.eightfold.ai|paypal.com"), "Netflix": ("eightfold", "explore.jobs.netflix.net|netflix.com"),
+    "Hudson River Trading": ("greenhouse", "wehrtyou"), "Noom": ("greenhouse", "noomgrowth"), "Skild AI": ("greenhouse", "skildai-careers"),
+    "Goldman Sachs": ("oracle", "hdpc.fa.us2.oraclecloud.com|LateralHiring"),
+    # JS-only career sites with private APIs (Meta, Tesla, Shopify, SAP, Coveo, ...) stay on the GitHub lists.
+    "Deel": ("none", None), "Confluent": ("none", None),
 }
 SUFFIX = re.compile(r"\b(inc|llc|ltd|corp|corporation|co|company|group|holdings|technologies|technology|labs|"
                     r"the|plc|lp|l p|na|n a|us|usa|canada|careers)\b")

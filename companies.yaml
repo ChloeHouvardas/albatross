@@ -3,19 +3,19 @@
 # ats: none -> still covered via the GitHub lists (matching roles forwarded to #company-roles).
 - {aliases: [Alphabet], ats: custom, name: Google, slug: google}
 - {ats: custom, name: Amazon, slug: amazon}
-- {ats: none, name: Microsoft}
+- {ats: eightfold_pcsx, name: Microsoft, slug: apply.careers.microsoft.com|microsoft.com}
 - {aliases: [Facebook], ats: none, name: Meta}
 - {ats: custom, name: Apple, slug: apple}
-- {ats: none, name: Netflix}
+- {ats: eightfold, name: Netflix, slug: explore.jobs.netflix.net|netflix.com}
 - {ats: workday, name: NVIDIA, slug: nvidia|wd5|NVIDIAExternalCareerSite}
 - {ats: smartrecruiters, name: LinkedIn, slug: LinkedIn3}
 - {ats: workday, name: Salesforce, slug: salesforce|wd12|External_Career_Site}
 - {ats: workday, name: Adobe, slug: adobe|wd5|external_experienced}
 - {ats: oracle, name: Oracle, slug: eeho.fa.us2.oraclecloud.com|CX_45001}
-- {ats: none, name: IBM}
+- {ats: custom, name: IBM, slug: ibm}
 - {ats: workday, name: Intel, slug: intel|wd1|external}
 - {aliases: [Advanced Micro Devices], ats: jibe, name: AMD, slug: careers.amd.com}
-- {ats: none, name: Qualcomm}
+- {ats: eightfold_pcsx, name: Qualcomm, slug: qualcomm.eightfold.ai|qualcomm.com}
 - {ats: workday, name: Cisco, slug: cisco|wd5|cisco_careers}
 - {ats: oracle, name: Uber, slug: iaziqy.fa.ocs.oraclecloud.com|CX_1}
 - {ats: greenhouse, name: Airbnb, slug: airbnb}
@@ -49,11 +49,11 @@
 - {ats: lever, name: Waabi, slug: waabi}
 - {ats: greenhouse, name: Ada, slug: ada18}
 - {ats: greenhouse, name: Jane Street, slug: janestreet}
-- {ats: none, name: Citadel}
-- {ats: none, name: Citadel Securities}
-- {aliases: [HRT], ats: none, name: Hudson River Trading}
+- {ats: custom, name: Citadel, slug: citadel}
+- {ats: custom, name: Citadel Securities, slug: citadel_securities}
+- {aliases: [HRT], ats: greenhouse, name: Hudson River Trading, slug: wehrtyou}
 - {ats: avature, name: Two Sigma, slug: careers.twosigma.com/careers/OpenRoles}
-- {aliases: [D.E. Shaw, DE Shaw], ats: none, name: D. E. Shaw}
+- {aliases: [D.E. Shaw, DE Shaw], ats: custom, name: D. E. Shaw, slug: deshaw}
 - {aliases: [Jump], ats: greenhouse, name: Jump Trading, slug: jumptrading}
 - {aliases: [Optiver US], ats: greenhouse, name: Optiver, slug: optiverprivate}
 - {aliases: [IMC Trading], ats: greenhouse, name: IMC, slug: imc}
@@ -173,7 +173,7 @@
 - {ats: greenhouse, name: Affirm, slug: affirm}
 - {ats: greenhouse, name: SoFi, slug: sofi}
 - {aliases: [Square], ats: greenhouse, name: Block, slug: block}
-- {ats: none, name: PayPal}
+- {ats: eightfold_pcsx, name: PayPal, slug: paypal.eightfold.ai|paypal.com}
 - {ats: workday, name: Visa, slug: visa|wd5|Visa}
 - {ats: workday, name: Mastercard, slug: mastercard|wd1|Campus}
 - {ats: ashby, name: Kraken, slug: kraken.com}
@@ -185,7 +185,7 @@
 - {ats: ashby, name: KOHO, slug: koho}
 - {ats: greenhouse, name: Questrade, slug: questrade}
 - {ats: avature, name: Bloomberg, slug: bloomberg.avature.net/careers/SearchJobs}
-- {aliases: [Goldman], ats: none, name: Goldman Sachs}
+- {aliases: [Goldman], ats: oracle, name: Goldman Sachs, slug: hdpc.fa.us2.oraclecloud.com|LateralHiring}
 - {ats: workday, name: Morgan Stanley, slug: ms|wd5|External}
 - {aliases: [JPMorgan, JP Morgan, J.P. Morgan], ats: oracle, name: JPMorgan Chase, slug: jpmc.fa.oraclecloud.com|CX_1001}
 - {ats: workday, name: Capital One, slug: capitalone|wd12|Capital_One}
@@ -239,14 +239,14 @@
 - {ats: greenhouse, name: Zwift, slug: zwift}
 - {ats: greenhouse, name: Headspace, slug: hs}
 - {ats: greenhouse, name: Calm, slug: calm}
-- {ats: none, name: Noom}
+- {ats: greenhouse, name: Noom, slug: noomgrowth}
 - {ats: lever, name: Zoox, slug: zoox}
 - {ats: ashby, name: Aurora, slug: aurora-operations-inc}
 - {ats: ashby, name: Skydio, slug: skydio}
 - {ats: ashby, name: Applied Intuition, slug: applied}
 - {ats: ashby, name: Physical Intelligence, slug: physicalintelligence}
 - {ats: greenhouse, name: Figure AI, slug: figureai}
-- {ats: none, name: Skild AI}
+- {ats: greenhouse, name: Skild AI, slug: skildai-careers}
 - {ats: lever, name: Shield AI, slug: shieldai}
 - {ats: ashby, name: Saronic, slug: saronic}
 - {ats: ashby, name: Hadrian, slug: hadrian-automation}
