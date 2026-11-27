@@ -2,8 +2,20 @@
  "fails": {
   "ashby:f7d8749a-72d6-407c-bf98-292ea630c73a": 1,
   "ca:greenhouse:aperaaiinc": 20,
+  "ca:workday:fiserv|wd5|ext": 1,
+  "ca:workday:pg|wd5|1000": 1,
+  "ca:workday:stryker|wd1|StrykerCareers": 1,
   "custom:citadel": 1,
-  "custom:citadel_securities": 1
+  "custom:citadel_securities": 1,
+  "workday:applebank|wd5|applebankcareers": 1,
+  "workday:highmarkhealth|wd1|highmark": 1,
+  "workday:hpe|wd5|jobsathpe": 1,
+  "workday:mastercard|wd1|Campus": 1,
+  "workday:micron|wd1|External": 1,
+  "workday:modernatx|wd1|M_tx": 1,
+  "workday:ptc|wd1|ptc": 1,
+  "workday:thomsonreuters|wd5|External_Career_Site": 1,
+  "workday:xboxgaming|wd1|Blizzard_External_Careers": 1
  },
  "last_summary": "2026-11-26"
 }
